@@ -1,0 +1,2248 @@
+Loading pipeline components...:   0%|          | 0/2 [00:00<?, ?it/s]Loading pipeline components...: 100%|██████████| 2/2 [00:00<00:00, 11.08it/s]Loading pipeline components...: 100%|██████████| 2/2 [00:00<00:00, 11.07it/s]
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:19,  1.25it/s]  8%|▊         | 2/25 [00:00<00:10,  2.29it/s] 12%|█▏        | 3/25 [00:01<00:07,  3.00it/s] 16%|█▌        | 4/25 [00:01<00:05,  3.52it/s] 20%|██        | 5/25 [00:01<00:05,  3.88it/s] 24%|██▍       | 6/25 [00:01<00:04,  4.14it/s] 28%|██▊       | 7/25 [00:02<00:04,  4.33it/s] 32%|███▏      | 8/25 [00:02<00:03,  4.45it/s] 36%|███▌      | 9/25 [00:02<00:03,  4.54it/s] 40%|████      | 10/25 [00:02<00:03,  4.51it/s] 44%|████▍     | 11/25 [00:02<00:03,  4.45it/s] 48%|████▊     | 12/25 [00:03<00:02,  4.43it/s] 52%|█████▏    | 13/25 [00:03<00:02,  4.41it/s] 56%|█████▌    | 14/25 [00:03<00:02,  4.46it/s] 60%|██████    | 15/25 [00:03<00:02,  4.51it/s] 64%|██████▍   | 16/25 [00:04<00:02,  4.46it/s] 68%|██████▊   | 17/25 [00:04<00:01,  4.42it/s] 72%|███████▏  | 18/25 [00:04<00:01,  4.40it/s] 76%|███████▌  | 19/25 [00:04<00:01,  4.39it/s] 80%|████████  | 20/25 [00:04<00:01,  4.44it/s] 84%|████████▍ | 21/25 [00:05<00:00,  4.50it/s] 88%|████████▊ | 22/25 [00:05<00:00,  4.58it/s] 92%|█████████▏| 23/25 [00:05<00:00,  4.63it/s] 96%|█████████▌| 24/25 [00:05<00:00,  4.65it/s]100%|██████████| 25/25 [00:06<00:00,  4.66it/s]100%|██████████| 25/25 [00:06<00:00,  4.17it/s]
+                                                                                                                                                                                    
+---type(image)
+<class 'PIL.Image.Image'>
+                                                                                                                                                                                    
+---type(num_img)
+<class 'numpy.ndarray'>
+--type(vae---> AutoencoderKL(
+  (encoder): Encoder(
+    (conv_in): Conv2d(3, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (down_blocks): ModuleList(
+      (0): DownEncoderBlock2D(
+        (resnets): ModuleList(
+          (0-1): 2 x ResnetBlock2D(
+            (norm1): GroupNorm(32, 128, eps=1e-06, affine=True)
+            (conv1): LoRACompatibleConv(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (norm2): GroupNorm(32, 128, eps=1e-06, affine=True)
+            (dropout): Dropout(p=0.0, inplace=False)
+            (conv2): LoRACompatibleConv(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (nonlinearity): SiLU()
+          )
+        )
+        (downsamplers): ModuleList(
+          (0): Downsample2D(
+            (conv): LoRACompatibleConv(128, 128, kernel_size=(3, 3), stride=(2, 2))
+          )
+        )
+      )
+      (1): DownEncoderBlock2D(
+        (resnets): ModuleList(
+          (0): ResnetBlock2D(
+            (norm1): GroupNorm(32, 128, eps=1e-06, affine=True)
+            (conv1): LoRACompatibleConv(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (norm2): GroupNorm(32, 256, eps=1e-06, affine=True)
+            (dropout): Dropout(p=0.0, inplace=False)
+            (conv2): LoRACompatibleConv(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (nonlinearity): SiLU()
+            (conv_shortcut): LoRACompatibleConv(128, 256, kernel_size=(1, 1), stride=(1, 1))
+          )
+          (1): ResnetBlock2D(
+            (norm1): GroupNorm(32, 256, eps=1e-06, affine=True)
+            (conv1): LoRACompatibleConv(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (norm2): GroupNorm(32, 256, eps=1e-06, affine=True)
+            (dropout): Dropout(p=0.0, inplace=False)
+            (conv2): LoRACompatibleConv(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (nonlinearity): SiLU()
+          )
+        )
+        (downsamplers): ModuleList(
+          (0): Downsample2D(
+            (conv): LoRACompatibleConv(256, 256, kernel_size=(3, 3), stride=(2, 2))
+          )
+        )
+      )
+      (2): DownEncoderBlock2D(
+        (resnets): ModuleList(
+          (0): ResnetBlock2D(
+            (norm1): GroupNorm(32, 256, eps=1e-06, affine=True)
+            (conv1): LoRACompatibleConv(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (norm2): GroupNorm(32, 512, eps=1e-06, affine=True)
+            (dropout): Dropout(p=0.0, inplace=False)
+            (conv2): LoRACompatibleConv(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (nonlinearity): SiLU()
+            (conv_shortcut): LoRACompatibleConv(256, 512, kernel_size=(1, 1), stride=(1, 1))
+          )
+          (1): ResnetBlock2D(
+            (norm1): GroupNorm(32, 512, eps=1e-06, affine=True)
+            (conv1): LoRACompatibleConv(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (norm2): GroupNorm(32, 512, eps=1e-06, affine=True)
+            (dropout): Dropout(p=0.0, inplace=False)
+            (conv2): LoRACompatibleConv(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (nonlinearity): SiLU()
+          )
+        )
+        (downsamplers): ModuleList(
+          (0): Downsample2D(
+            (conv): LoRACompatibleConv(512, 512, kernel_size=(3, 3), stride=(2, 2))
+          )
+        )
+      )
+      (3): DownEncoderBlock2D(
+        (resnets): ModuleList(
+          (0-1): 2 x ResnetBlock2D(
+            (norm1): GroupNorm(32, 512, eps=1e-06, affine=True)
+            (conv1): LoRACompatibleConv(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (norm2): GroupNorm(32, 512, eps=1e-06, affine=True)
+            (dropout): Dropout(p=0.0, inplace=False)
+            (conv2): LoRACompatibleConv(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (nonlinearity): SiLU()
+          )
+        )
+      )
+    )
+    (mid_block): UNetMidBlock2D(
+      (attentions): ModuleList(
+        (0): Attention(
+          (group_norm): GroupNorm(32, 512, eps=1e-06, affine=True)
+          (to_q): Linear(in_features=512, out_features=512, bias=True)
+          (to_k): Linear(in_features=512, out_features=512, bias=True)
+          (to_v): Linear(in_features=512, out_features=512, bias=True)
+          (to_out): ModuleList(
+            (0): Linear(in_features=512, out_features=512, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+          )
+        )
+      )
+      (resnets): ModuleList(
+        (0-1): 2 x ResnetBlock2D(
+          (norm1): GroupNorm(32, 512, eps=1e-06, affine=True)
+          (conv1): LoRACompatibleConv(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): GroupNorm(32, 512, eps=1e-06, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+        )
+      )
+    )
+    (conv_norm_out): GroupNorm(32, 512, eps=1e-06, affine=True)
+    (conv_act): SiLU()
+    (conv_out): Conv2d(512, 8, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (decoder): Decoder(
+    (conv_in): Conv2d(4, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (up_blocks): ModuleList(
+      (0-1): 2 x UpDecoderBlock2D(
+        (resnets): ModuleList(
+          (0-2): 3 x ResnetBlock2D(
+            (norm1): GroupNorm(32, 512, eps=1e-06, affine=True)
+            (conv1): LoRACompatibleConv(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (norm2): GroupNorm(32, 512, eps=1e-06, affine=True)
+            (dropout): Dropout(p=0.0, inplace=False)
+            (conv2): LoRACompatibleConv(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (nonlinearity): SiLU()
+          )
+        )
+        (upsamplers): ModuleList(
+          (0): Upsample2D(
+            (conv): LoRACompatibleConv(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (2): UpDecoderBlock2D(
+        (resnets): ModuleList(
+          (0): ResnetBlock2D(
+            (norm1): GroupNorm(32, 512, eps=1e-06, affine=True)
+            (conv1): LoRACompatibleConv(512, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (norm2): GroupNorm(32, 256, eps=1e-06, affine=True)
+            (dropout): Dropout(p=0.0, inplace=False)
+            (conv2): LoRACompatibleConv(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (nonlinearity): SiLU()
+            (conv_shortcut): LoRACompatibleConv(512, 256, kernel_size=(1, 1), stride=(1, 1))
+          )
+          (1-2): 2 x ResnetBlock2D(
+            (norm1): GroupNorm(32, 256, eps=1e-06, affine=True)
+            (conv1): LoRACompatibleConv(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (norm2): GroupNorm(32, 256, eps=1e-06, affine=True)
+            (dropout): Dropout(p=0.0, inplace=False)
+            (conv2): LoRACompatibleConv(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (nonlinearity): SiLU()
+          )
+        )
+        (upsamplers): ModuleList(
+          (0): Upsample2D(
+            (conv): LoRACompatibleConv(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (3): UpDecoderBlock2D(
+        (resnets): ModuleList(
+          (0): ResnetBlock2D(
+            (norm1): GroupNorm(32, 256, eps=1e-06, affine=True)
+            (conv1): LoRACompatibleConv(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (norm2): GroupNorm(32, 128, eps=1e-06, affine=True)
+            (dropout): Dropout(p=0.0, inplace=False)
+            (conv2): LoRACompatibleConv(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (nonlinearity): SiLU()
+            (conv_shortcut): LoRACompatibleConv(256, 128, kernel_size=(1, 1), stride=(1, 1))
+          )
+          (1-2): 2 x ResnetBlock2D(
+            (norm1): GroupNorm(32, 128, eps=1e-06, affine=True)
+            (conv1): LoRACompatibleConv(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (norm2): GroupNorm(32, 128, eps=1e-06, affine=True)
+            (dropout): Dropout(p=0.0, inplace=False)
+            (conv2): LoRACompatibleConv(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (nonlinearity): SiLU()
+          )
+        )
+      )
+    )
+    (mid_block): UNetMidBlock2D(
+      (attentions): ModuleList(
+        (0): Attention(
+          (group_norm): GroupNorm(32, 512, eps=1e-06, affine=True)
+          (to_q): Linear(in_features=512, out_features=512, bias=True)
+          (to_k): Linear(in_features=512, out_features=512, bias=True)
+          (to_v): Linear(in_features=512, out_features=512, bias=True)
+          (to_out): ModuleList(
+            (0): Linear(in_features=512, out_features=512, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+          )
+        )
+      )
+      (resnets): ModuleList(
+        (0-1): 2 x ResnetBlock2D(
+          (norm1): GroupNorm(32, 512, eps=1e-06, affine=True)
+          (conv1): LoRACompatibleConv(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): GroupNorm(32, 512, eps=1e-06, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+        )
+      )
+    )
+    (conv_norm_out): GroupNorm(32, 128, eps=1e-06, affine=True)
+    (conv_act): SiLU()
+    (conv_out): Conv2d(128, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (quant_conv): Conv2d(8, 8, kernel_size=(1, 1), stride=(1, 1))
+  (post_quant_conv): Conv2d(4, 4, kernel_size=(1, 1), stride=(1, 1))
+)
+--type(tokenizer---> CLIPTokenizer(name_or_path='CompVis/stable-diffusion-v1-4', vocab_size=49408, model_max_length=77, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': AddedToken("<|startoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True), 'eos_token': AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True), 'unk_token': AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True), 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=True)
+--type(text_encoder---> CLIPTextModel(
+  (text_model): CLIPTextTransformer(
+    (embeddings): CLIPTextEmbeddings(
+      (token_embedding): Embedding(49408, 768)
+      (position_embedding): Embedding(77, 768)
+    )
+    (encoder): CLIPEncoder(
+      (layers): ModuleList(
+        (0-11): 12 x CLIPEncoderLayer(
+          (self_attn): CLIPAttention(
+            (k_proj): Linear(in_features=768, out_features=768, bias=True)
+            (v_proj): Linear(in_features=768, out_features=768, bias=True)
+            (q_proj): Linear(in_features=768, out_features=768, bias=True)
+            (out_proj): Linear(in_features=768, out_features=768, bias=True)
+          )
+          (layer_norm1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (mlp): CLIPMLP(
+            (activation_fn): QuickGELUActivation()
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+          )
+          (layer_norm2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  )
+)
+--type(unet---> UNet2DConditionModel(
+  (conv_in): Conv2d(4, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (time_proj): Timesteps()
+  (time_embedding): TimestepEmbedding(
+    (linear_1): Linear(in_features=320, out_features=1280, bias=True)
+    (act): SiLU()
+    (linear_2): Linear(in_features=1280, out_features=1280, bias=True)
+  )
+  (down_blocks): ModuleList(
+    (0): CrossAttnDownBlock2D(
+      (attentions): ModuleList(
+        (0-1): 2 x Transformer2DModel(
+          (norm): GroupNorm(32, 320, eps=1e-06, affine=True)
+          (proj_in): LoRACompatibleConv(320, 320, kernel_size=(1, 1), stride=(1, 1))
+          (transformer_blocks): ModuleList(
+            (0): BasicTransformerBlock(
+              (norm1): LayerNorm((320,), eps=1e-05, elementwise_affine=True)
+              (attn1): Attention(
+                (to_q): Linear(in_features=320, out_features=320, bias=False)
+                (to_k): Linear(in_features=320, out_features=320, bias=False)
+                (to_v): Linear(in_features=320, out_features=320, bias=False)
+                (to_out): ModuleList(
+                  (0): Linear(in_features=320, out_features=320, bias=True)
+                  (1): Dropout(p=0.0, inplace=False)
+                )
+              )
+              (norm2): LayerNorm((320,), eps=1e-05, elementwise_affine=True)
+              (attn2): Attention(
+                (to_q): Linear(in_features=320, out_features=320, bias=False)
+                (to_k): Linear(in_features=768, out_features=320, bias=False)
+                (to_v): Linear(in_features=768, out_features=320, bias=False)
+                (to_out): ModuleList(
+                  (0): Linear(in_features=320, out_features=320, bias=True)
+                  (1): Dropout(p=0.0, inplace=False)
+                )
+              )
+              (norm3): LayerNorm((320,), eps=1e-05, elementwise_affine=True)
+              (ff): FeedForward(
+                (net): ModuleList(
+                  (0): GEGLU(
+                    (proj): LoRACompatibleLinear(in_features=320, out_features=2560, bias=True)
+                  )
+                  (1): Dropout(p=0.0, inplace=False)
+                  (2): LoRACompatibleLinear(in_features=1280, out_features=320, bias=True)
+                )
+              )
+            )
+          )
+          (proj_out): LoRACompatibleConv(320, 320, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (resnets): ModuleList(
+        (0-1): 2 x ResnetBlock2D(
+          (norm1): GroupNorm(32, 320, eps=1e-05, affine=True)
+          (conv1): LoRACompatibleConv(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=320, bias=True)
+          (norm2): GroupNorm(32, 320, eps=1e-05, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+        )
+      )
+      (downsamplers): ModuleList(
+        (0): Downsample2D(
+          (conv): LoRACompatibleConv(320, 320, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+        )
+      )
+    )
+    (1): CrossAttnDownBlock2D(
+      (attentions): ModuleList(
+        (0-1): 2 x Transformer2DModel(
+          (norm): GroupNorm(32, 640, eps=1e-06, affine=True)
+          (proj_in): LoRACompatibleConv(640, 640, kernel_size=(1, 1), stride=(1, 1))
+          (transformer_blocks): ModuleList(
+            (0): BasicTransformerBlock(
+              (norm1): LayerNorm((640,), eps=1e-05, elementwise_affine=True)
+              (attn1): Attention(
+                (to_q): Linear(in_features=640, out_features=640, bias=False)
+                (to_k): Linear(in_features=640, out_features=640, bias=False)
+                (to_v): Linear(in_features=640, out_features=640, bias=False)
+                (to_out): ModuleList(
+                  (0): Linear(in_features=640, out_features=640, bias=True)
+                  (1): Dropout(p=0.0, inplace=False)
+                )
+              )
+              (norm2): LayerNorm((640,), eps=1e-05, elementwise_affine=True)
+              (attn2): Attention(
+                (to_q): Linear(in_features=640, out_features=640, bias=False)
+                (to_k): Linear(in_features=768, out_features=640, bias=False)
+                (to_v): Linear(in_features=768, out_features=640, bias=False)
+                (to_out): ModuleList(
+                  (0): Linear(in_features=640, out_features=640, bias=True)
+                  (1): Dropout(p=0.0, inplace=False)
+                )
+              )
+              (norm3): LayerNorm((640,), eps=1e-05, elementwise_affine=True)
+              (ff): FeedForward(
+                (net): ModuleList(
+                  (0): GEGLU(
+                    (proj): LoRACompatibleLinear(in_features=640, out_features=5120, bias=True)
+                  )
+                  (1): Dropout(p=0.0, inplace=False)
+                  (2): LoRACompatibleLinear(in_features=2560, out_features=640, bias=True)
+                )
+              )
+            )
+          )
+          (proj_out): LoRACompatibleConv(640, 640, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (resnets): ModuleList(
+        (0): ResnetBlock2D(
+          (norm1): GroupNorm(32, 320, eps=1e-05, affine=True)
+          (conv1): LoRACompatibleConv(320, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=640, bias=True)
+          (norm2): GroupNorm(32, 640, eps=1e-05, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+          (conv_shortcut): LoRACompatibleConv(320, 640, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock2D(
+          (norm1): GroupNorm(32, 640, eps=1e-05, affine=True)
+          (conv1): LoRACompatibleConv(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=640, bias=True)
+          (norm2): GroupNorm(32, 640, eps=1e-05, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+        )
+      )
+      (downsamplers): ModuleList(
+        (0): Downsample2D(
+          (conv): LoRACompatibleConv(640, 640, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+        )
+      )
+    )
+    (2): CrossAttnDownBlock2D(
+      (attentions): ModuleList(
+        (0-1): 2 x Transformer2DModel(
+          (norm): GroupNorm(32, 1280, eps=1e-06, affine=True)
+          (proj_in): LoRACompatibleConv(1280, 1280, kernel_size=(1, 1), stride=(1, 1))
+          (transformer_blocks): ModuleList(
+            (0): BasicTransformerBlock(
+              (norm1): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+              (attn1): Attention(
+                (to_q): Linear(in_features=1280, out_features=1280, bias=False)
+                (to_k): Linear(in_features=1280, out_features=1280, bias=False)
+                (to_v): Linear(in_features=1280, out_features=1280, bias=False)
+                (to_out): ModuleList(
+                  (0): Linear(in_features=1280, out_features=1280, bias=True)
+                  (1): Dropout(p=0.0, inplace=False)
+                )
+              )
+              (norm2): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+              (attn2): Attention(
+                (to_q): Linear(in_features=1280, out_features=1280, bias=False)
+                (to_k): Linear(in_features=768, out_features=1280, bias=False)
+                (to_v): Linear(in_features=768, out_features=1280, bias=False)
+                (to_out): ModuleList(
+                  (0): Linear(in_features=1280, out_features=1280, bias=True)
+                  (1): Dropout(p=0.0, inplace=False)
+                )
+              )
+              (norm3): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+              (ff): FeedForward(
+                (net): ModuleList(
+                  (0): GEGLU(
+                    (proj): LoRACompatibleLinear(in_features=1280, out_features=10240, bias=True)
+                  )
+                  (1): Dropout(p=0.0, inplace=False)
+                  (2): LoRACompatibleLinear(in_features=5120, out_features=1280, bias=True)
+                )
+              )
+            )
+          )
+          (proj_out): LoRACompatibleConv(1280, 1280, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (resnets): ModuleList(
+        (0): ResnetBlock2D(
+          (norm1): GroupNorm(32, 640, eps=1e-05, affine=True)
+          (conv1): LoRACompatibleConv(640, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=1280, bias=True)
+          (norm2): GroupNorm(32, 1280, eps=1e-05, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(1280, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+          (conv_shortcut): LoRACompatibleConv(640, 1280, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock2D(
+          (norm1): GroupNorm(32, 1280, eps=1e-05, affine=True)
+          (conv1): LoRACompatibleConv(1280, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=1280, bias=True)
+          (norm2): GroupNorm(32, 1280, eps=1e-05, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(1280, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+        )
+      )
+      (downsamplers): ModuleList(
+        (0): Downsample2D(
+          (conv): LoRACompatibleConv(1280, 1280, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+        )
+      )
+    )
+    (3): DownBlock2D(
+      (resnets): ModuleList(
+        (0-1): 2 x ResnetBlock2D(
+          (norm1): GroupNorm(32, 1280, eps=1e-05, affine=True)
+          (conv1): LoRACompatibleConv(1280, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=1280, bias=True)
+          (norm2): GroupNorm(32, 1280, eps=1e-05, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(1280, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+        )
+      )
+    )
+  )
+  (up_blocks): ModuleList(
+    (0): UpBlock2D(
+      (resnets): ModuleList(
+        (0-2): 3 x ResnetBlock2D(
+          (norm1): GroupNorm(32, 2560, eps=1e-05, affine=True)
+          (conv1): LoRACompatibleConv(2560, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=1280, bias=True)
+          (norm2): GroupNorm(32, 1280, eps=1e-05, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(1280, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+          (conv_shortcut): LoRACompatibleConv(2560, 1280, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (upsamplers): ModuleList(
+        (0): Upsample2D(
+          (conv): LoRACompatibleConv(1280, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+    )
+    (1): CrossAttnUpBlock2D(
+      (attentions): ModuleList(
+        (0-2): 3 x Transformer2DModel(
+          (norm): GroupNorm(32, 1280, eps=1e-06, affine=True)
+          (proj_in): LoRACompatibleConv(1280, 1280, kernel_size=(1, 1), stride=(1, 1))
+          (transformer_blocks): ModuleList(
+            (0): BasicTransformerBlock(
+              (norm1): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+              (attn1): Attention(
+                (to_q): Linear(in_features=1280, out_features=1280, bias=False)
+                (to_k): Linear(in_features=1280, out_features=1280, bias=False)
+                (to_v): Linear(in_features=1280, out_features=1280, bias=False)
+                (to_out): ModuleList(
+                  (0): Linear(in_features=1280, out_features=1280, bias=True)
+                  (1): Dropout(p=0.0, inplace=False)
+                )
+              )
+              (norm2): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+              (attn2): Attention(
+                (to_q): Linear(in_features=1280, out_features=1280, bias=False)
+                (to_k): Linear(in_features=768, out_features=1280, bias=False)
+                (to_v): Linear(in_features=768, out_features=1280, bias=False)
+                (to_out): ModuleList(
+                  (0): Linear(in_features=1280, out_features=1280, bias=True)
+                  (1): Dropout(p=0.0, inplace=False)
+                )
+              )
+              (norm3): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+              (ff): FeedForward(
+                (net): ModuleList(
+                  (0): GEGLU(
+                    (proj): LoRACompatibleLinear(in_features=1280, out_features=10240, bias=True)
+                  )
+                  (1): Dropout(p=0.0, inplace=False)
+                  (2): LoRACompatibleLinear(in_features=5120, out_features=1280, bias=True)
+                )
+              )
+            )
+          )
+          (proj_out): LoRACompatibleConv(1280, 1280, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (resnets): ModuleList(
+        (0-1): 2 x ResnetBlock2D(
+          (norm1): GroupNorm(32, 2560, eps=1e-05, affine=True)
+          (conv1): LoRACompatibleConv(2560, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=1280, bias=True)
+          (norm2): GroupNorm(32, 1280, eps=1e-05, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(1280, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+          (conv_shortcut): LoRACompatibleConv(2560, 1280, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (2): ResnetBlock2D(
+          (norm1): GroupNorm(32, 1920, eps=1e-05, affine=True)
+          (conv1): LoRACompatibleConv(1920, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=1280, bias=True)
+          (norm2): GroupNorm(32, 1280, eps=1e-05, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(1280, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+          (conv_shortcut): LoRACompatibleConv(1920, 1280, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (upsamplers): ModuleList(
+        (0): Upsample2D(
+          (conv): LoRACompatibleConv(1280, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+    )
+    (2): CrossAttnUpBlock2D(
+      (attentions): ModuleList(
+        (0-2): 3 x Transformer2DModel(
+          (norm): GroupNorm(32, 640, eps=1e-06, affine=True)
+          (proj_in): LoRACompatibleConv(640, 640, kernel_size=(1, 1), stride=(1, 1))
+          (transformer_blocks): ModuleList(
+            (0): BasicTransformerBlock(
+              (norm1): LayerNorm((640,), eps=1e-05, elementwise_affine=True)
+              (attn1): Attention(
+                (to_q): Linear(in_features=640, out_features=640, bias=False)
+                (to_k): Linear(in_features=640, out_features=640, bias=False)
+                (to_v): Linear(in_features=640, out_features=640, bias=False)
+                (to_out): ModuleList(
+                  (0): Linear(in_features=640, out_features=640, bias=True)
+                  (1): Dropout(p=0.0, inplace=False)
+                )
+              )
+              (norm2): LayerNorm((640,), eps=1e-05, elementwise_affine=True)
+              (attn2): Attention(
+                (to_q): Linear(in_features=640, out_features=640, bias=False)
+                (to_k): Linear(in_features=768, out_features=640, bias=False)
+                (to_v): Linear(in_features=768, out_features=640, bias=False)
+                (to_out): ModuleList(
+                  (0): Linear(in_features=640, out_features=640, bias=True)
+                  (1): Dropout(p=0.0, inplace=False)
+                )
+              )
+              (norm3): LayerNorm((640,), eps=1e-05, elementwise_affine=True)
+              (ff): FeedForward(
+                (net): ModuleList(
+                  (0): GEGLU(
+                    (proj): LoRACompatibleLinear(in_features=640, out_features=5120, bias=True)
+                  )
+                  (1): Dropout(p=0.0, inplace=False)
+                  (2): LoRACompatibleLinear(in_features=2560, out_features=640, bias=True)
+                )
+              )
+            )
+          )
+          (proj_out): LoRACompatibleConv(640, 640, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (resnets): ModuleList(
+        (0): ResnetBlock2D(
+          (norm1): GroupNorm(32, 1920, eps=1e-05, affine=True)
+          (conv1): LoRACompatibleConv(1920, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=640, bias=True)
+          (norm2): GroupNorm(32, 640, eps=1e-05, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+          (conv_shortcut): LoRACompatibleConv(1920, 640, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock2D(
+          (norm1): GroupNorm(32, 1280, eps=1e-05, affine=True)
+          (conv1): LoRACompatibleConv(1280, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=640, bias=True)
+          (norm2): GroupNorm(32, 640, eps=1e-05, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+          (conv_shortcut): LoRACompatibleConv(1280, 640, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (2): ResnetBlock2D(
+          (norm1): GroupNorm(32, 960, eps=1e-05, affine=True)
+          (conv1): LoRACompatibleConv(960, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=640, bias=True)
+          (norm2): GroupNorm(32, 640, eps=1e-05, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+          (conv_shortcut): LoRACompatibleConv(960, 640, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (upsamplers): ModuleList(
+        (0): Upsample2D(
+          (conv): LoRACompatibleConv(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+    )
+    (3): CrossAttnUpBlock2D(
+      (attentions): ModuleList(
+        (0-2): 3 x Transformer2DModel(
+          (norm): GroupNorm(32, 320, eps=1e-06, affine=True)
+          (proj_in): LoRACompatibleConv(320, 320, kernel_size=(1, 1), stride=(1, 1))
+          (transformer_blocks): ModuleList(
+            (0): BasicTransformerBlock(
+              (norm1): LayerNorm((320,), eps=1e-05, elementwise_affine=True)
+              (attn1): Attention(
+                (to_q): Linear(in_features=320, out_features=320, bias=False)
+                (to_k): Linear(in_features=320, out_features=320, bias=False)
+                (to_v): Linear(in_features=320, out_features=320, bias=False)
+                (to_out): ModuleList(
+                  (0): Linear(in_features=320, out_features=320, bias=True)
+                  (1): Dropout(p=0.0, inplace=False)
+                )
+              )
+              (norm2): LayerNorm((320,), eps=1e-05, elementwise_affine=True)
+              (attn2): Attention(
+                (to_q): Linear(in_features=320, out_features=320, bias=False)
+                (to_k): Linear(in_features=768, out_features=320, bias=False)
+                (to_v): Linear(in_features=768, out_features=320, bias=False)
+                (to_out): ModuleList(
+                  (0): Linear(in_features=320, out_features=320, bias=True)
+                  (1): Dropout(p=0.0, inplace=False)
+                )
+              )
+              (norm3): LayerNorm((320,), eps=1e-05, elementwise_affine=True)
+              (ff): FeedForward(
+                (net): ModuleList(
+                  (0): GEGLU(
+                    (proj): LoRACompatibleLinear(in_features=320, out_features=2560, bias=True)
+                  )
+                  (1): Dropout(p=0.0, inplace=False)
+                  (2): LoRACompatibleLinear(in_features=1280, out_features=320, bias=True)
+                )
+              )
+            )
+          )
+          (proj_out): LoRACompatibleConv(320, 320, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (resnets): ModuleList(
+        (0): ResnetBlock2D(
+          (norm1): GroupNorm(32, 960, eps=1e-05, affine=True)
+          (conv1): LoRACompatibleConv(960, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=320, bias=True)
+          (norm2): GroupNorm(32, 320, eps=1e-05, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+          (conv_shortcut): LoRACompatibleConv(960, 320, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1-2): 2 x ResnetBlock2D(
+          (norm1): GroupNorm(32, 640, eps=1e-05, affine=True)
+          (conv1): LoRACompatibleConv(640, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=320, bias=True)
+          (norm2): GroupNorm(32, 320, eps=1e-05, affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (conv2): LoRACompatibleConv(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (nonlinearity): SiLU()
+          (conv_shortcut): LoRACompatibleConv(640, 320, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+    )
+  )
+  (mid_block): UNetMidBlock2DCrossAttn(
+    (attentions): ModuleList(
+      (0): Transformer2DModel(
+        (norm): GroupNorm(32, 1280, eps=1e-06, affine=True)
+        (proj_in): LoRACompatibleConv(1280, 1280, kernel_size=(1, 1), stride=(1, 1))
+        (transformer_blocks): ModuleList(
+          (0): BasicTransformerBlock(
+            (norm1): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+            (attn1): Attention(
+              (to_q): Linear(in_features=1280, out_features=1280, bias=False)
+              (to_k): Linear(in_features=1280, out_features=1280, bias=False)
+              (to_v): Linear(in_features=1280, out_features=1280, bias=False)
+              (to_out): ModuleList(
+                (0): Linear(in_features=1280, out_features=1280, bias=True)
+                (1): Dropout(p=0.0, inplace=False)
+              )
+            )
+            (norm2): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+            (attn2): Attention(
+              (to_q): Linear(in_features=1280, out_features=1280, bias=False)
+              (to_k): Linear(in_features=768, out_features=1280, bias=False)
+              (to_v): Linear(in_features=768, out_features=1280, bias=False)
+              (to_out): ModuleList(
+                (0): Linear(in_features=1280, out_features=1280, bias=True)
+                (1): Dropout(p=0.0, inplace=False)
+              )
+            )
+            (norm3): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+            (ff): FeedForward(
+              (net): ModuleList(
+                (0): GEGLU(
+                  (proj): LoRACompatibleLinear(in_features=1280, out_features=10240, bias=True)
+                )
+                (1): Dropout(p=0.0, inplace=False)
+                (2): LoRACompatibleLinear(in_features=5120, out_features=1280, bias=True)
+              )
+            )
+          )
+        )
+        (proj_out): LoRACompatibleConv(1280, 1280, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (resnets): ModuleList(
+      (0-1): 2 x ResnetBlock2D(
+        (norm1): GroupNorm(32, 1280, eps=1e-05, affine=True)
+        (conv1): LoRACompatibleConv(1280, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (time_emb_proj): LoRACompatibleLinear(in_features=1280, out_features=1280, bias=True)
+        (norm2): GroupNorm(32, 1280, eps=1e-05, affine=True)
+        (dropout): Dropout(p=0.0, inplace=False)
+        (conv2): LoRACompatibleConv(1280, 1280, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (nonlinearity): SiLU()
+      )
+    )
+  )
+  (conv_norm_out): GroupNorm(32, 320, eps=1e-05, affine=True)
+  (conv_act): SiLU()
+  (conv_out): Conv2d(320, 4, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+)/home/dhankar/temp/08_23/huggin_face/diff/diffusers/examples/text_to_image/test_1_pipe.py:110: FutureWarning: Accessing config attribute `in_channels` directly via 'UNet2DConditionModel' object attribute is deprecated. Please access 'in_channels' over 'UNet2DConditionModel's config object instead, e.g. 'unet.config.in_channels'.
+  (batch_size, unet.in_channels, height // 8, width // 8),
+
+--type(scheduler---> UniPCMultistepScheduler {
+  "_class_name": "UniPCMultistepScheduler",
+  "_diffusers_version": "0.19.3",
+  "beta_end": 0.012,
+  "beta_schedule": "scaled_linear",
+  "beta_start": 0.00085,
+  "clip_sample": false,
+  "disable_corrector": [],
+  "dynamic_thresholding_ratio": 0.995,
+  "lower_order_final": true,
+  "num_train_timesteps": 1000,
+  "predict_x0": true,
+  "prediction_type": "epsilon",
+  "sample_max_value": 1.0,
+  "set_alpha_to_one": false,
+  "skip_prk_steps": true,
+  "solver_order": 2,
+  "solver_p": null,
+  "solver_type": "bh2",
+  "steps_offset": 1,
+  "thresholding": false,
+  "timestep_spacing": "linspace",
+  "trained_betas": null,
+  "use_karras_sigmas": false
+}
+
+--type(text_embeddings--> tensor([[[-0.3884,  0.0229, -0.0522,  ..., -0.4899, -0.3066,  0.0675],
+         [-0.8512,  0.4016,  1.2630,  ..., -2.0346,  0.4913,  0.0713],
+         [-1.4644,  0.2633,  1.5454,  ...,  0.6448,  1.0746, -0.1843],
+         ...,
+         [-1.8343, -0.0850,  0.0342,  ..., -0.8829, -0.2938, -0.1123],
+         [-1.8405, -0.0976,  0.0329,  ..., -0.8871, -0.2938, -0.1200],
+         [-1.8027, -0.0353,  0.0657,  ..., -0.9518, -0.2578, -0.1262]]])
+--type(uncond_embeddings--> tensor([[[-0.3884,  0.0229, -0.0522,  ..., -0.4899, -0.3066,  0.0675],
+         [-0.3711, -1.4497, -0.3401,  ...,  0.9489,  0.1867, -1.1034],
+         [-0.5107, -1.4629, -0.2926,  ...,  1.0419,  0.0701, -1.0284],
+         ...,
+         [ 0.5006, -0.9552, -0.6610,  ...,  1.6013, -1.0622, -0.2191],
+         [ 0.4988, -0.9451, -0.6656,  ...,  1.6467, -1.0858, -0.2088],
+         [ 0.4923, -0.8124, -0.4912,  ...,  1.6108, -1.0174, -0.2484]]],
+       grad_fn=<NativeLayerNormBackward0>)
+--type(latents-1-> tensor([[[[-1.1258, -1.1524, -0.2506,  ..., -1.2341,  1.8197, -0.5515],
+          [-0.5692,  0.9200,  1.1108,  ...,  1.1648,  0.9234,  1.3873],
+          [-0.8834, -0.4189, -0.8048,  ..., -0.9944, -1.1894, -1.1959],
+          ...,
+          [ 0.0859, -0.3592, -2.4972,  ..., -1.0989, -0.2155,  0.3364],
+          [ 0.5901, -0.8325, -1.3715,  ...,  1.0564, -0.1504,  0.7420],
+          [ 0.7272, -0.2612,  0.0124,  ..., -3.0357, -1.7288,  0.6020]],
+
+         [[ 1.9476,  1.0077, -0.1007,  ..., -0.1173, -0.6841,  0.5988],
+          [-0.2579, -1.0667, -0.7595,  ..., -0.1600,  1.0375,  1.2084],
+          [ 1.3706, -0.0510,  2.6697,  ...,  0.1930, -2.0206, -0.5840],
+          ...,
+          [-1.5910,  1.0099,  0.2331,  ..., -0.5705, -0.8428, -1.2050],
+          [-1.6555,  0.7469,  1.6022,  ..., -0.8822,  0.3436, -0.3445],
+          [-0.0718,  0.8205, -0.0775,  ..., -0.7476, -1.0687, -0.1856]],
+
+         [[ 0.2652, -0.7908,  0.9808,  ...,  0.4130, -0.7824,  1.7467],
+          [-0.0583,  0.9223,  0.5924,  ..., -2.2366, -0.3921,  0.3631],
+          [-0.4197, -0.8450, -0.6224,  ..., -0.8636,  0.1449,  1.7647],
+          ...,
+          [-0.3144,  0.9923,  0.3074,  ..., -0.6925, -1.5328, -1.3741],
+          [ 0.4452,  0.9136, -0.2788,  ..., -1.7930,  0.8511, -1.4528],
+          [ 0.1486,  0.4138,  0.5233,  ...,  1.2246, -0.9603, -0.6734]],
+
+         [[-1.0890, -0.9528,  0.1688,  ...,  0.4781,  0.6494, -1.2252],
+          [-1.9213,  1.1630, -0.1448,  ..., -1.5672,  0.0918, -0.1540],
+          [-1.3179, -0.3727, -0.8441,  ..., -1.4757, -1.1799, -0.3072],
+          ...,
+          [-0.3931,  0.2065, -2.1190,  ..., -0.3143, -0.7680, -0.3209],
+          [ 0.9347,  1.1779, -0.5261,  ..., -0.4910,  0.0231, -1.2609],
+          [ 0.0426,  0.6799, -0.4928,  ...,  0.0908, -1.3665, -1.0782]]]])
+--type(latents-2-> tensor([[[[-1.1258, -1.1524, -0.2506,  ..., -1.2341,  1.8197, -0.5515],
+          [-0.5692,  0.9200,  1.1108,  ...,  1.1648,  0.9234,  1.3873],
+          [-0.8834, -0.4189, -0.8048,  ..., -0.9944, -1.1894, -1.1959],
+          ...,
+          [ 0.0859, -0.3592, -2.4972,  ..., -1.0989, -0.2155,  0.3364],
+          [ 0.5901, -0.8325, -1.3715,  ...,  1.0564, -0.1504,  0.7420],
+          [ 0.7272, -0.2612,  0.0124,  ..., -3.0357, -1.7288,  0.6020]],
+
+         [[ 1.9476,  1.0077, -0.1007,  ..., -0.1173, -0.6841,  0.5988],
+          [-0.2579, -1.0667, -0.7595,  ..., -0.1600,  1.0375,  1.2084],
+          [ 1.3706, -0.0510,  2.6697,  ...,  0.1930, -2.0206, -0.5840],
+          ...,
+          [-1.5910,  1.0099,  0.2331,  ..., -0.5705, -0.8428, -1.2050],
+          [-1.6555,  0.7469,  1.6022,  ..., -0.8822,  0.3436, -0.3445],
+          [-0.0718,  0.8205, -0.0775,  ..., -0.7476, -1.0687, -0.1856]],
+
+         [[ 0.2652, -0.7908,  0.9808,  ...,  0.4130, -0.7824,  1.7467],
+          [-0.0583,  0.9223,  0.5924,  ..., -2.2366, -0.3921,  0.3631],
+          [-0.4197, -0.8450, -0.6224,  ..., -0.8636,  0.1449,  1.7647],
+          ...,
+          [-0.3144,  0.9923,  0.3074,  ..., -0.6925, -1.5328, -1.3741],
+          [ 0.4452,  0.9136, -0.2788,  ..., -1.7930,  0.8511, -1.4528],
+          [ 0.1486,  0.4138,  0.5233,  ...,  1.2246, -0.9603, -0.6734]],
+
+         [[-1.0890, -0.9528,  0.1688,  ...,  0.4781,  0.6494, -1.2252],
+          [-1.9213,  1.1630, -0.1448,  ..., -1.5672,  0.0918, -0.1540],
+          [-1.3179, -0.3727, -0.8441,  ..., -1.4757, -1.1799, -0.3072],
+          ...,
+          [-0.3931,  0.2065, -2.1190,  ..., -0.3143, -0.7680, -0.3209],
+          [ 0.9347,  1.1779, -0.5261,  ..., -0.4910,  0.0231, -1.2609],
+          [ 0.0426,  0.6799, -0.4928,  ...,  0.0908, -1.3665, -1.0782]]]])
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:10<04:04, 10.18s/it]  8%|▊         | 2/25 [00:20<04:02, 10.54s/it] 12%|█▏        | 3/25 [00:31<03:53, 10.60s/it]--type(latents-3-> tensor([[[[-1.1632, -1.1764, -0.2724,  ..., -1.2579,  1.7908, -0.5794],
+          [-0.5979,  0.8973,  1.0901,  ...,  1.1412,  0.8989,  1.3640],
+          [-0.9175, -0.4426, -0.8274,  ..., -1.0161, -1.2120, -1.2162],
+          ...,
+          [ 0.0632, -0.3709, -2.5091,  ..., -1.1138, -0.2344,  0.3145],
+          [ 0.5623, -0.8457, -1.3848,  ...,  1.0407, -0.1690,  0.7186],
+          [ 0.7048, -0.2762, -0.0060,  ..., -3.0467, -1.7472,  0.5769]],
+
+         [[ 1.9279,  0.9884, -0.1128,  ..., -0.1317, -0.7015,  0.5759],
+          [-0.2721, -1.0727, -0.7634,  ..., -0.1689,  1.0236,  1.1806],
+          [ 1.3531, -0.0609,  2.6625,  ...,  0.1843, -2.0269, -0.5972],
+          ...,
+          [-1.5990,  1.0037,  0.2271,  ..., -0.5755, -0.8514, -1.2185],
+          [-1.6641,  0.7390,  1.5953,  ..., -0.8866,  0.3336, -0.3621],
+          [-0.0820,  0.8134, -0.0841,  ..., -0.7531, -1.0764, -0.2003]],
+
+         [[ 0.2770, -0.7775,  0.9894,  ...,  0.4223, -0.7727,  1.7516],
+          [-0.0449,  0.9322,  0.5976,  ..., -2.2280, -0.3857,  0.3726],
+          [-0.4060, -0.8367, -0.6162,  ..., -0.8581,  0.1521,  1.7656],
+          ...,
+          [-0.3048,  0.9989,  0.3116,  ..., -0.6892, -1.5283, -1.3642],
+          [ 0.4537,  0.9211, -0.2751,  ..., -1.7865,  0.8546, -1.4413],
+          [ 0.1643,  0.4237,  0.5305,  ...,  1.2328, -0.9473, -0.6574]],
+
+         [[-1.0928, -0.9476,  0.1704,  ...,  0.4777,  0.6551, -1.2172],
+          [-1.9104,  1.1712, -0.1388,  ..., -1.5621,  0.1017, -0.1419],
+          [-1.3109, -0.3649, -0.8384,  ..., -1.4746, -1.1769, -0.3004],
+          ...,
+          [-0.3786,  0.2215, -2.1053,  ..., -0.3017, -0.7539, -0.3007],
+          [ 0.9455,  1.1927, -0.5109,  ..., -0.4751,  0.0383, -1.2370],
+          [ 0.0605,  0.6955, -0.4771,  ...,  0.1060, -1.3480, -1.0530]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3-> tensor([[[[-3.4076e+00, -3.3428e+00, -7.7308e-01,  ..., -3.3816e+00,
+            5.1692e+00, -1.6547e+00],
+          [-1.7656e+00,  2.6465e+00,  3.1248e+00,  ...,  3.1791e+00,
+            2.6816e+00,  3.9904e+00],
+          [-2.6591e+00, -1.1487e+00, -2.1866e+00,  ..., -2.8961e+00,
+           -3.4672e+00, -3.5366e+00],
+          ...,
+          [-2.1233e-03, -1.0825e+00, -7.0303e+00,  ..., -3.1956e+00,
+           -7.7230e-01,  8.9198e-01],
+          [ 1.6031e+00, -2.3715e+00, -3.8277e+00,  ...,  2.7982e+00,
+           -5.0559e-01,  2.0076e+00],
+          [ 2.0911e+00, -7.7247e-01, -8.7052e-02,  ..., -8.8801e+00,
+           -5.2601e+00,  1.6066e+00]],
+
+         [[ 5.7070e+00,  2.9446e+00, -2.5746e-01,  ..., -3.4670e-01,
+           -1.8471e+00,  1.7350e+00],
+          [-6.6586e-01, -2.9646e+00, -2.0430e+00,  ..., -3.1765e-01,
+            3.0360e+00,  3.6261e+00],
+          [ 3.9126e+00,  4.4720e-02,  7.6099e+00,  ...,  5.7780e-01,
+           -5.7369e+00, -1.9248e+00],
+          ...,
+          [-4.6438e+00,  2.7666e+00,  6.1282e-01,  ..., -1.7469e+00,
+           -2.5468e+00, -3.6664e+00],
+          [-4.8068e+00,  2.0335e+00,  4.4130e+00,  ..., -2.5097e+00,
+            7.9929e-01, -1.1049e+00],
+          [-2.2865e-01,  2.2823e+00, -2.1777e-01,  ..., -2.3550e+00,
+           -3.2318e+00, -6.5749e-01]],
+
+         [[ 6.9041e-01, -2.1754e+00,  2.8665e+00,  ...,  1.1167e+00,
+           -2.0557e+00,  4.9872e+00],
+          [-1.7241e-01,  2.7419e+00,  1.8035e+00,  ..., -6.2878e+00,
+           -1.0973e+00,  1.0626e+00],
+          [-1.2195e+00, -2.2497e+00, -1.7411e+00,  ..., -2.5667e+00,
+            3.7792e-01,  5.0915e+00],
+          ...,
+          [-7.1424e-01,  2.8349e+00,  8.4051e-01,  ..., -2.0684e+00,
+           -4.3999e+00, -4.0224e+00],
+          [ 1.4857e+00,  2.6785e+00, -6.8772e-01,  ..., -4.9886e+00,
+            2.1461e+00, -4.2489e+00],
+          [ 6.0167e-01,  1.3372e+00,  1.5677e+00,  ...,  3.3526e+00,
+           -2.8415e+00, -2.1063e+00]],
+
+         [[-3.3427e+00, -2.8368e+00,  5.3337e-01,  ...,  1.2115e+00,
+            1.7607e+00, -3.5238e+00],
+          [-5.4788e+00,  3.2131e+00, -3.0612e-01,  ..., -4.4885e+00,
+            1.9742e-01, -3.3133e-01],
+          [-3.9492e+00, -1.1938e+00, -2.3894e+00,  ..., -4.2625e+00,
+           -3.4240e+00, -9.4096e-01],
+          ...,
+          [-9.2873e-01,  7.4645e-01, -5.7923e+00,  ..., -1.0133e+00,
+           -2.2411e+00, -1.0320e+00],
+          [ 2.8081e+00,  3.4347e+00, -1.3379e+00,  ..., -1.4417e+00,
+            1.0456e-02, -3.7122e+00],
+          [ 3.0922e-01,  2.0302e+00, -1.1381e+00,  ...,  1.6958e-01,
+           -4.0040e+00, -3.2250e+00]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3-> tensor([[[[ -9.0582,  -8.7952,  -2.0281,  ...,  -8.7861,  13.6643,  -4.3558],
+          [ -4.7077,   7.0618,   8.2517,  ...,   8.3070,   7.1484,  10.5883],
+          [ -7.0716,  -2.9677,  -5.6723,  ...,  -7.6386,  -9.1335,  -9.3790],
+          ...,
+          [ -0.1281,  -2.8879, -18.4986,  ...,  -8.4675,  -2.1578,   2.3076],
+          [  4.2172,  -6.2317, -10.0542,  ...,   7.2232,  -1.3770,   5.2507],
+          [  5.5617,  -2.0246,  -0.2898,  ..., -23.6035, -14.0812,   4.1740]],
+
+         [[ 15.2189,   7.8632,  -0.6542,  ...,  -0.8747,  -4.7681,   4.6232],
+          [ -1.6434,  -7.7379,  -5.2923,  ...,  -0.7021,   8.0992,   9.7366],
+          [ 10.3589,   0.2881,  20.1005,  ...,   1.6050, -15.0565,  -5.2688],
+          ...,
+          [-12.2979,   7.2187,   1.5948,  ...,  -4.6480,  -6.7850,  -9.8192],
+          [-12.7328,   5.2986,  11.5287,  ...,  -6.6217,   2.0138,  -2.9810],
+          [ -0.6285,   5.9706,  -0.5793,  ...,  -6.3559,  -8.6252,  -1.8048]],
+
+         [[  1.7386,  -5.7320,   7.5665,  ...,   2.8876,  -5.3184,  13.1467],
+          [ -0.5028,   7.2733,   4.7911,  ..., -16.5199,  -2.8648,   2.8111],
+          [ -3.2603,  -5.8781,  -4.6226,  ...,  -6.8539,   0.9457,  13.4579],
+          ...,
+          [ -1.7949,   7.4707,   2.1462,  ...,  -5.5355, -11.6332, -10.6997],
+          [  4.0365,   7.0887,  -1.7837,  ..., -13.0561,   5.5219, -11.2852],
+          [  1.6643,   3.5864,   4.1437,  ...,   8.7394,  -7.6343,  -5.7165]],
+
+         [[ -8.9766,  -7.5707,   1.4150,  ...,   3.0968,   4.5745,  -9.3478],
+          [-14.4902,   8.3910,  -0.7880,  ..., -11.8808,   0.4348,  -0.8380],
+          [-10.5789,  -3.2611,  -6.3242,  ..., -11.2805,  -9.0574,  -2.5315],
+          ...,
+          [ -2.3722,   2.0645, -15.1576,  ...,  -2.7387,  -5.9467,  -2.8394],
+          [  7.4589,   9.1040,  -3.4594,  ...,  -3.8072,   0.0262,  -9.8893],
+          [  0.8957,   5.4133,  -2.8798,  ...,   0.4050, -10.6516,  -8.6554]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3->  16%|█▌        | 4/25 [00:42<03:44, 10.68s/it] 20%|██        | 5/25 [00:52<03:30, 10.54s/it] 24%|██▍       | 6/25 [01:03<03:20, 10.57s/it]tensor([[[[-23.5275, -22.7554,  -5.2413,  ..., -22.6453,  35.4207, -11.2827],
+          [-12.2371,  18.3644,  21.3785,  ...,  21.4435,  18.5747,  27.4767],
+          [-18.3703,  -7.6331, -14.6168,  ..., -19.7857, -23.6475, -24.3420],
+          ...,
+          [ -0.4414,  -7.5086, -47.8755,  ..., -21.9784,  -5.7077,   5.9288],
+          [ 10.9104, -16.1189, -26.0038,  ...,  18.5654,  -3.6150,  13.5529],
+          [ 14.4470,  -5.2301,  -0.8078,  ..., -61.3196, -36.6671,  10.7453]],
+
+         [[ 39.5712,  20.4538,  -1.6794,  ...,  -2.2246, -12.2627,  12.0128],
+          [ -4.1549, -19.9677, -13.6310,  ...,  -1.6921,  21.0568,  25.3665],
+          [ 26.8623,   0.8952,  52.0723,  ...,   4.2390, -38.9191, -13.8234],
+          ...,
+          [-31.9031,  18.6123,   4.0999,  ..., -12.0608, -17.6227, -25.5673],
+          [-33.0408,  13.6500,  29.7427,  ..., -17.1436,   5.1425,  -7.7818],
+          [ -1.6601,  15.4082,  -1.5159,  ..., -16.5858, -22.4217,  -4.7405]],
+
+         [[  4.4163, -14.8530,  19.5868,  ...,   7.4344, -13.6886,  34.0457],
+          [ -1.3611,  18.8557,  12.4206,  ..., -42.7263,  -7.3903,   7.2880],
+          [ -8.5006, -15.1958, -12.0090,  ..., -17.8158,   2.4045,  34.8800],
+          ...,
+          [ -4.5882,  19.3177,   5.4709,  ..., -14.3979, -30.1404, -27.7821],
+          [ 10.5450,  18.3540,  -4.6122,  ..., -33.7063,  14.2034, -29.2872],
+          [  4.3701,   9.3255,  10.7272,  ...,  22.5638, -19.8901, -14.9380]],
+
+         [[-23.3840, -19.6749,   3.6702,  ...,   7.9401,  11.7986, -24.2556],
+          [-37.5578,  21.6632,  -2.0344,  ..., -30.7967,   1.0616,  -2.1270],
+          [-27.5326,  -8.5436, -16.4034,  ..., -29.2451, -23.4739,  -6.5940],
+          ...,
+          [ -6.0774,   5.4275, -39.1582,  ...,  -7.1415, -15.4221,  -7.4535],
+          [ 19.3615,  23.6151,  -8.9019,  ...,  -9.8489,   0.0799, -25.6962],
+          [  2.3885,  14.0714,  -7.3551,  ...,   1.0198, -27.6669, -22.5492]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3-> tensor([[[[ -59.2827,  -57.2533,  -13.1814,  ...,  -56.8951,   89.1872,
+            -28.4020],
+          [ -30.8416,   46.2946,   53.8182,  ...,   53.9088,   46.8104,
+             69.2111],
+          [ -46.2880,  -19.1601,  -36.7194,  ...,  -49.8033,  -59.5163,
+            -61.3185],
+          ...,
+          [  -1.2137,  -18.9246, -120.4696,  ...,  -55.3652,  -14.4766,
+             14.8804],
+          [  27.4530,  -40.5509,  -65.4148,  ...,   46.5978,   -9.1447,
+             34.0707],
+          [  36.4067,  -13.1504,   -2.0859,  ..., -154.5241,  -92.4802,
+             26.9871]],
+
+         [[  99.7499,   51.5668,   -4.2139,  ...,   -5.5604,  -30.7839,
+             30.2748],
+          [ -10.3652,  -50.1925,  -34.2414,  ...,   -4.1393,   53.0762,
+             63.9912],
+          [  67.6448,    2.3915,  131.0761,  ...,   10.7473,  -97.8903,
+            -34.9600],
+          ...,
+          [ -80.3527,   46.7676,   10.2894,  ...,  -30.3778,  -44.4018,
+            -64.4816],
+          [ -83.2275,   34.2867,   74.7526,  ...,  -43.1423,   12.8772,
+            -19.6428],
+          [  -4.2090,   38.7302,   -3.8309,  ...,  -41.8637,  -56.5130,
+            -11.9936]],
+
+         [[  11.0311,  -37.3951,   49.2886,  ...,   18.6712,  -34.3756,
+             85.6917],
+          [  -3.4851,   47.4731,   31.2714,  ..., -107.4886,  -18.5761,
+             18.3504],
+          [ -21.4560,  -38.2251,  -30.2624,  ...,  -44.9026,    6.0109,
+             87.8192],
+          ...,
+          [ -11.4952,   48.5876,   13.6844,  ...,  -36.2961,  -75.8722,
+            -69.9933],
+          [  26.6247,   46.1866,  -11.6044,  ...,  -84.7367,   35.6576,
+            -73.7732],
+          [  11.0537,   23.5048,   26.9950,  ...,   56.7308,  -50.1715,
+            -37.7237]],
+
+         [[ -58.9850,  -49.5842,    9.2444,  ...,   19.9117,   29.6547,
+            -61.0926],
+          [ -94.5592,   54.4615,   -5.1135,  ...,  -77.5369,    2.6156,
+             -5.3088],
+          [ -69.4228,  -21.5951,  -41.3096,  ...,  -73.6375,  -59.0999,
+            -16.6323],
+          ...,
+          [ -15.2328,   13.7346,  -98.4693,  ...,  -18.0221,  -38.8379,
+            -18.8556],
+          [  48.7751,   59.4713,  -22.3523,  ...,  -24.7810,    0.2095,
+            -64.7600],
+          [   6.0765,   35.4635,  -18.4146,  ...,    2.5367,  -69.7158,
+            -56.8836]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3-> tensor([[[[-143.7806, -138.7807,  -31.9451,  ..., -137.8363,  216.2547,
+            -68.8581],
+          [ -74.8082,  112.3024,  130.4841,  ...,  130.6356,  113.5410,
+            167.8427],
+          [-112.2633,  -46.4002,  -88.9527,  ..., -120.7422, -144.2838,
+           -148.7034],
+          ...,
+          [  -3.0371,  -45.9029, -292.0299,  ..., -134.2664,  -35.1979,
+             36.0378],
+          [  66.5499,  -98.2899, -158.5535,  ...,  112.8478,  -22.2114,
+             82.5622],
+          [  88.3053,  -31.8675,   -5.1049,  ..., -374.7918, -224.3812,
+             65.3734]],
+
+         [[ 241.9707,  125.0968,  -10.2030,  ...,  -13.4437,  -74.5542,
+             73.4349],
+          [ -25.0420, -121.6229,  -82.9497,  ...,   -9.9229,  128.7480,
+            155.2744],
+          [ 164.0267,    5.9279,  317.7855,  ...,   26.1283, -237.2569,
+            -84.9105],
+          ...,
+          [-194.8524,  113.3076,   24.9177,  ...,  -73.6664, -107.6881,
+           -156.4460],
+          [-201.8324,   83.0580,  181.1255,  ..., -104.5846,   31.1571,
+            -47.6724],
+          [ -10.2317,   93.8479,   -9.3013,  ..., -101.6020, -137.0802,
+            -29.1336]],
+
+         [[  26.6635,  -90.6693,  119.4826,  ...,   45.2261,  -83.2657,
+            207.7458],
+          [  -8.5053,  115.1037,   75.8214,  ..., -260.5415,  -45.0122,
+             44.4937],
+          [ -52.0740,  -92.6500,  -73.4005,  ..., -108.9173,   14.5334,
+            212.9301],
+          ...,
+          [ -27.8189,  117.7606,   33.0959,  ...,  -88.0482, -183.9503,
+           -169.7512],
+          [  64.6253,  111.9632,  -28.1285,  ..., -205.3375,   86.3590,
+           -178.9075],
+          [  26.8481,   57.0143,   65.4407,  ...,  137.4768, -121.7353,
+            -91.5739]],
+
+         [[-143.1201, -120.2686,   22.4181,  ...,   48.2042,   71.8539,
+           -148.1492],
+          [-229.2704,  131.9728,  -12.3897,  ..., -187.9978,    6.2878,
+            -12.8290],
+          [-168.4217,  -52.4392, -100.1699,  ..., -178.5497, -143.2949,
+            -40.3561],
+          ...,
+          [ -36.8703,   33.3656, -238.6395,  ...,  -43.7376,  -94.1773,
+            -45.8031],
+          [ 118.2877,  144.2089,  -54.1402,  ...,  -60.0715,    0.5141,
+           -157.0807],
+          [  14.7917,   86.0179,  -44.5518,  ...,    6.1201, -169.0904,
+           -138.0270]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3->  28%|██▊       | 7/25 [01:14<03:11, 10.65s/it] 32%|███▏      | 8/25 [01:25<03:03, 10.78s/it] 36%|███▌      | 9/25 [01:36<02:55, 10.96s/it]tensor([[[[-335.0861, -323.3619,  -74.4263,  ..., -321.0910,  503.9419,
+           -160.4516],
+          [-174.3493,  261.7475,  304.0597,  ...,  304.3495,  264.6223,
+            391.1494],
+          [-261.6333, -108.0729, -207.2117,  ..., -281.3504, -336.2003,
+           -346.5458],
+          ...,
+          [  -7.1638, -106.9827, -680.4508,  ..., -312.9017,  -82.1111,
+             83.9396],
+          [ 155.0679, -229.0136, -369.4243,  ...,  262.8419,  -51.7946,
+            192.3501],
+          [ 205.8064,  -74.2434,  -11.9393,  ..., -873.4869, -523.0090,
+            152.2823]],
+
+         [[ 563.9645,  291.5720,  -23.7627,  ...,  -31.2914, -173.6523,
+            171.1515],
+          [ -58.2707, -283.3448, -193.2279,  ...,  -23.0176,  300.0723,
+            361.9434],
+          [ 382.2402,   13.9336,  740.5045,  ...,   60.9518, -552.7889,
+           -197.9993],
+          ...,
+          [-454.0844,  263.9582,   58.0375,  ..., -171.6728, -250.9704,
+           -364.6563],
+          [-470.3585,  193.4793,  421.9595,  ..., -243.6929,   72.5446,
+           -111.1318],
+          [ -23.8672,  218.6373,  -21.6865,  ..., -236.8511, -319.4867,
+            -67.9385]],
+
+         [[  62.0560, -211.2851,  278.4043,  ...,  105.3478, -193.9563,
+            484.0817],
+          [ -19.8715,  268.2216,  176.6839,  ..., -607.0610, -104.8648,
+            103.6829],
+          [-121.3947, -215.8717, -171.0676,  ..., -253.8492,   33.8289,
+            496.1864],
+          ...,
+          [ -64.7776,  274.3716,   77.0443,  ..., -205.2170, -428.6440,
+           -395.6075],
+          [ 150.6589,  260.8842,  -65.5406,  ..., -478.3840,  201.1509,
+           -416.9361],
+          [  62.6062,  132.8804,  152.4829,  ...,  320.2898, -283.7592,
+           -213.4928]],
+
+         [[-333.6047, -280.3008,   52.2435,  ...,  112.2605,  167.3950,
+           -345.2494],
+          [-534.2631,  307.4623,  -28.8641,  ..., -438.0867,   14.6017,
+            -29.8560],
+          [-392.5590, -122.2711, -233.4326,  ..., -416.0754, -333.9161,
+            -94.0675],
+          ...,
+          [ -85.8600,   77.8102, -555.9928,  ..., -101.9579, -219.4682,
+           -106.8132],
+          [ 275.6664,  336.0584, -126.1108,  ..., -139.9707,    1.2041,
+           -366.0988],
+          [  34.5218,  200.4750, -103.7295,  ...,   14.2334, -394.0787,
+           -321.7391]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3-> tensor([[[[ -751.3597,  -725.0042,  -166.8638,  ...,  -719.8484,
+            1129.9396,  -359.7558],
+          [ -390.9468,   586.9349,   681.7546,  ...,   682.3458,
+             593.3697,   877.0571],
+          [ -586.6572,  -242.2712,  -464.5403,  ...,  -630.8284,
+            -753.8038,  -777.0439],
+          ...,
+          [  -16.1420,  -239.8901, -1525.6428,  ...,  -701.6063,
+            -184.1922,   188.1724],
+          [  347.6802,  -513.4642,  -828.2728,  ...,   589.2251,
+            -116.1664,   431.2452],
+          [  461.4846,  -166.4521,   -26.8102,  ..., -1958.6302,
+           -1172.8114,   341.3937]],
+
+         [[ 1264.6116,   653.8162,   -53.2684,  ...,   -70.1273,
+            -389.2873,   383.7791],
+          [ -130.5756,  -635.2468,  -433.1904,  ...,   -51.5120,
+             672.8678,   811.6469],
+          [  857.0654,    31.3527,  1660.3271,  ...,   136.7267,
+           -1239.3763,  -444.0754],
+          ...,
+          [-1018.1639,   591.7693,   130.1054,  ...,  -384.9305,
+            -562.7469,  -817.7139],
+          [-1054.6622,   433.7528,   946.0074,  ...,  -546.3879,
+             162.6036,  -249.2168],
+          [  -53.5377,   490.1751,   -48.6364,  ...,  -531.1473,
+            -716.3961,  -152.3760]],
+
+         [[  139.0694,  -473.7419,   624.2123,  ...,   236.1711,
+            -434.8166,  1085.3794],
+          [  -44.6039,   601.4005,   396.1564,  ..., -1361.0762,
+            -235.1021,   232.4765],
+          [ -272.2340,  -483.9992,  -383.5884,  ...,  -569.2155,
+              75.8155,  1112.5425],
+          ...,
+          [ -145.1997,   615.1519,   172.6747,  ...,  -460.1720,
+            -961.0891,  -887.0626],
+          [  337.8638,   584.9305,  -146.9491,  ..., -1072.5247,
+             450.9366,  -934.8777],
+          [  140.4137,   297.9612,   341.8834,  ...,   718.0862,
+            -636.3171,  -478.7827]],
+
+         [[ -748.0914,  -628.5248,   117.1424,  ...,   251.6460,
+             375.2900,  -774.1327],
+          [-1197.9171,   689.3224,   -64.7129,  ...,  -982.2715,
+              32.6930,   -66.9067],
+          [ -880.2731,  -274.2223,  -523.4080,  ...,  -932.9233,
+            -748.7010,  -210.9412],
+          ...,
+          [ -192.4611,   174.5194, -1246.5447,  ...,  -228.6425,
+            -492.0966,  -239.5684],
+          [  618.1165,   753.5163,  -282.7172,  ...,  -313.8279,
+               2.7062,  -820.9141],
+          [   77.4527,   449.5295,  -232.4998,  ...,    31.8887,
+            -883.6450,  -721.4894]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3-> tensor([[[[-1625.0406, -1567.9771,  -360.8730,  ..., -1556.7675,
+            2443.7925,  -778.0583],
+          [ -845.5446,  1269.4425,  1474.4661,  ...,  1475.6906,
+            1283.3489,  1896.8865],
+          [-1268.8218,  -523.9293, -1004.6262,  ..., -1364.3180,
+           -1630.2764, -1680.5792],
+          ...,
+          [  -34.9846,  -518.8380, -3299.5449,  ..., -1517.4250,
+            -398.4407,   406.9378],
+          [  751.9380, -1110.4734, -1791.3113,  ...,  1274.2440,
+            -251.2708,   932.6419],
+          [  998.1053,  -359.9810,   -58.0209,  ..., -4236.1436,
+           -2536.6250,   738.3038]],
+
+         [[ 2735.1387,  1414.0988,  -115.1959,  ...,  -151.6369,
+            -841.8661,   830.0445],
+          [ -282.3311, -1373.8246,  -936.8281,  ...,  -111.3175,
+            1455.2958,  1755.4897],
+          [ 1853.6351,    67.9109,  3590.8638,  ...,   295.7636,
+           -2680.3965,  -960.5424],
+          ...,
+          [-2202.0620,  1279.7845,   281.3625,  ...,  -832.5185,
+           -1217.1074, -1768.5967],
+          [-2281.0073,   938.0426,  2045.8873,  ..., -1181.6887,
+             351.6215,  -539.0313],
+          [ -115.8106,  1060.0828,  -105.1995,  ..., -1148.8193,
+           -1549.4346,  -329.5942]],
+
+         [[  300.7066, -1024.5901,  1349.9988,  ...,   510.7455,
+            -940.3384,  2347.3923],
+          [  -96.5124,  1300.6807,   856.7880,  ..., -2943.6145,
+            -508.4461,   502.7906],
+          [ -588.8176, -1046.7498,  -829.6302,  ..., -1231.1100,
+             163.9378,  2406.1594],
+          ...,
+          [ -313.9918,  1330.3864,   373.3854,  ...,  -995.2745,
+           -2078.5923, -1918.5348],
+          [  730.7711,  1265.0435,  -317.8109,  ..., -2319.5164,
+             975.1918, -2021.9404],
+          [  303.7162,   644.4347,   739.3995,  ...,  1552.9880,
+           -1376.2700, -1035.5758]],
+
+         [[-1618.0210, -1359.3818,   253.3529,  ...,   544.1910,
+             811.6238, -1674.2788],
+          [-2590.8037,  1490.7767,  -139.9531,  ..., -2124.4141,
+              70.6639,  -144.6695],
+          [-1903.8933,  -593.1387, -1132.0125,  ..., -2017.6909,
+           -1619.2573,  -456.2371],
+          ...,
+          [ -416.1979,   377.4933, -2695.8862,  ...,  -494.5291,
+           -1064.2925,  -518.1960],
+          [ 1336.8550,  1629.6827,  -611.4055,  ...,  -678.7218,
+               5.8593, -1775.4862],
+          [  167.5562,   972.2484,  -502.7658,  ...,    68.9444,
+           -1911.1531, -1560.4900]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3->  40%|████      | 10/25 [01:48<02:48, 11.24s/it] 44%|████▍     | 11/25 [01:59<02:36, 11.17s/it]tensor([[[[-3400.7405, -3281.2661,  -755.1844,  ..., -3257.7529,
+            5114.1143, -1628.2317],
+          [-1769.4851,  2656.5947,  3085.6013,  ...,  3088.1133,
+            2685.6865,  3969.6238],
+          [-2655.2773, -1096.3818, -2102.3169,  ..., -2855.0889,
+           -3411.6511, -3516.9563],
+          ...,
+          [  -73.2802, -1085.7815, -6904.8877,  ..., -3175.5244,
+            -833.8861,   851.5649],
+          [ 1573.5660, -2323.8567, -3748.6257,  ...,  2666.5022,
+            -525.8616,  1951.6990],
+          [ 2088.7522,  -753.3162,  -121.4544,  ..., -8865.0420,
+           -5308.4873,  1544.9985]],
+
+         [[ 5723.8896,  2959.3237,  -241.0596,  ...,  -317.3002,
+           -1761.7047,  1737.0499],
+          [ -590.7651, -2874.9370, -1960.4403,  ...,  -232.8694,
+            3045.5298,  3673.7883],
+          [ 3879.0986,   142.2116,  7514.5566,  ...,   618.9953,
+           -5609.1787, -2010.2271],
+          ...,
+          [-4608.2588,  2678.1323,   588.7831,  ..., -1742.2120,
+           -2547.0532, -3701.2041],
+          [-4773.4746,  1962.9800,  4281.3237,  ..., -2472.8970,
+             735.7891, -1128.0602],
+          [ -242.3760,  2218.3840,  -220.1602,  ..., -2404.1973,
+           -3242.5315,  -689.7783]],
+
+         [[  629.2248, -2144.1541,  2825.1135,  ...,  1068.8009,
+           -1967.7798,  4912.3525],
+          [ -202.0127,  2721.9229,  1792.9919,  ..., -6160.0239,
+           -1064.0006,  1052.1865],
+          [-1232.2529, -2190.5046, -1736.1813,  ..., -2576.3677,
+             343.0412,  5035.3530],
+          ...,
+          [ -657.0513,  2784.0547,   781.3177,  ..., -2082.8354,
+           -4349.8457, -4014.9351],
+          [ 1529.3292,  2647.3291,  -665.0766,  ..., -4853.9482,
+            2040.7079, -4231.3252],
+          [  635.6179,  1348.6194,  1547.3254,  ...,  3249.8735,
+           -2880.1758, -2167.2209]],
+
+         [[-3386.0959, -2844.8010,   530.1920,  ...,  1138.7709,
+            1698.4448, -3503.7683],
+          [-5421.7563,  3119.6821,  -292.8742,  ..., -4445.7456,
+             147.8379,  -302.7176],
+          [-3984.3345, -1241.3148, -2368.9617,  ..., -4222.4111,
+           -3388.6069,  -954.7848],
+          ...,
+          [ -870.9290,   790.0240, -5641.5811,  ..., -1034.9263,
+           -2227.2439, -1084.4877],
+          [ 2797.6450,  3410.4346, -1279.4441,  ..., -1420.3452,
+              12.2677, -3715.5923],
+          [  350.6852,  2034.6406, -1052.0652,  ...,   144.2581,
+           -3999.4968, -3265.7039]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3-> tensor([[[[ -6910.9277,  -6668.0811,  -1534.6561,  ...,  -6620.2466,
+            10392.7822,  -3308.8469],
+          [ -3595.9226,   5398.7041,   6270.4800,  ...,   6275.5371,
+             5457.8154,   8066.9927],
+          [ -5396.0103,  -2228.0015,  -4272.2231,  ...,  -5802.0317,
+            -6933.0571,  -7147.0903],
+          ...,
+          [  -148.9815,  -2206.5103, -14031.8984,  ...,  -6453.2402,
+            -1694.6697,   1730.5001],
+          [  3197.7534,  -4722.4629,  -7617.8281,  ...,   5418.7075,
+            -1068.6698,   3966.1626],
+          [  4244.7329,  -1530.8582,   -246.8486,  ..., -18015.4082,
+           -10787.8789,   3139.6663]],
+
+         [[ 11632.0244,   6013.9097,   -489.8660,  ...,   -644.7824,
+            -3580.0339,   3530.0095],
+          [ -1200.4760,  -5842.3237,  -3983.9084,  ...,   -473.1534,
+             6189.0898,   7465.8633],
+          [  7883.0171,    289.0873,  15270.8779,  ...,   1257.9562,
+           -11398.7705,  -4085.2329],
+          ...,
+          [ -9364.8066,   5442.3745,   1196.4899,  ...,  -3540.4866,
+            -5176.0781,  -7521.5635],
+          [ -9700.5615,   3989.0681,   8700.3174,  ...,  -5025.3467,
+             1495.2087,  -2292.4468],
+          [  -492.5690,   4508.1045,   -447.4134,  ...,  -4885.8164,
+            -6589.4292,  -1401.7866]],
+
+         [[  1278.6373,  -4357.2979,   5741.1074,  ...,   2171.9604,
+            -3998.8179,   9982.7441],
+          [  -410.5641,   5531.4219,   3643.6719,  ..., -12518.1953,
+            -2162.2161,   2138.2278],
+          [ -2504.1897,  -4451.4697,  -3528.2432,  ...,  -5235.6611,
+              697.0917,  10232.7197],
+          ...,
+          [ -1335.2090,   5657.6543,   1587.7156,  ...,  -4232.7158,
+            -8839.6396,  -8159.0806],
+          [  3107.9111,   5379.8198,  -1351.5485,  ...,  -9863.9912,
+             4147.0117,  -8598.8164],
+          [  1291.7175,   2740.6455,   3144.4268,  ...,   6604.2617,
+            -5853.0825,  -4404.2461]],
+
+         [[ -6881.2104,  -5781.1641,   1077.4451,  ...,   2314.1318,
+             3451.5054,  -7120.2866],
+          [-11017.9590,   6339.6880,   -595.1673,  ...,  -9034.5332,
+              300.3954,   -615.1462],
+          [ -8096.9316,  -2522.6230,  -4814.1519,  ...,  -8580.6826,
+            -6886.2422,  -1940.3092],
+          ...,
+          [ -1769.8383,   1605.5105, -11464.6064,  ...,  -2103.1782,
+            -4526.1562,  -2203.9272],
+          [  5685.3213,   6930.6094,  -2600.0173,  ...,  -2886.3799,
+               24.9357,  -7550.7759],
+          [   712.6924,   4134.7676,  -2137.9163,  ...,    293.1378,
+            -8127.7153,  -6636.5542]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3->  48%|████▊     | 12/25 [02:09<02:22, 10.96s/it] 52%|█████▏    | 13/25 [02:20<02:10, 10.89s/it]tensor([[[[-13692.3066, -13211.1152,  -3040.5283,  ..., -13116.2969,
+            20590.7148,  -6555.6504],
+          [ -7124.4414,  10696.2236,  12423.3896,  ...,  12433.3662,
+            10813.3281,  15982.7549],
+          [-10690.8691,  -4414.1934,  -8464.2959,  ..., -11495.2705,
+           -13736.1113, -14160.1963],
+          ...,
+          [  -295.2288,  -4371.6611, -27800.6699,  ..., -12785.5029,
+            -3357.6282,   3428.5276],
+          [  6335.5430,  -9356.3623, -15092.7949,  ...,  10735.7324,
+            -2117.3279,   7857.9326],
+          [  8409.9004,  -3033.0020,   -489.0989,  ..., -35693.1250,
+           -21373.5879,   6220.4277]],
+
+         [[ 23046.0312,  11915.1055,   -970.5388,  ...,  -1277.4504,
+            -7092.8901,   6993.8530],
+          [ -2378.3857, -11575.0596,  -7893.0752,  ...,   -937.3628,
+            12262.1777,  14791.8232],
+          [ 15618.2412,    572.8369,  30255.4219,  ...,   2492.3726,
+           -22583.7637,  -8093.9634],
+          ...,
+          [-18554.0469,  10782.6533,   2370.5273,  ...,  -7014.5972,
+           -10255.1270, -14902.1680],
+          [-19219.2656,   7903.2964,  17237.4316,  ...,  -9956.4600,
+             2962.3425,  -4541.9404],
+          [  -975.9201,   8931.6475,   -886.4468,  ...,  -9680.0889,
+           -13055.3467,  -2777.3242]],
+
+         [[  2533.2473,  -8632.9004,  11374.5557,  ...,   4303.1699,
+            -7922.6094,  19778.3027],
+          [  -813.4667,  10959.1299,   7219.0259,  ..., -24801.6328,
+            -4283.8740,   4236.3657],
+          [ -4961.4609,  -8819.4590,  -6990.3516,  ..., -10373.1855,
+             1381.0873,  20273.5820],
+          ...,
+          [ -2645.3518,  11209.2012,   3145.6079,  ...,  -8386.0986,
+           -17513.5332, -16165.2119],
+          [  6157.5947,  10658.7559,  -2677.7529,  ..., -19542.9648,
+             8216.2100, -17036.4336],
+          [  2559.2451,   5429.9189,   6229.8887,  ...,  13084.6504,
+           -11596.4805,  -8725.9844]],
+
+         [[-13633.4688, -11453.9639,   2134.6907,  ...,   4584.8286,
+             6838.2671, -14107.0879],
+          [-21829.3398,  12560.4639,  -1179.1715,  ..., -17899.6758,
+              595.1241,  -1218.7319],
+          [-16042.1133,  -4997.9985,  -9538.0488,  ..., -17000.4863,
+           -13643.3701,  -3844.2571],
+          ...,
+          [ -3506.4539,   3180.9592, -22714.1914,  ...,  -4166.9482,
+            -8967.4561,  -4366.5869],
+          [ 11264.0615,  13731.2832,  -5151.2510,  ...,  -5718.6328,
+               49.4091, -14960.0186],
+          [  1412.0583,   8192.0312,  -4235.6880,  ...,    580.7609,
+           -16103.0771, -13148.7461]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3-> tensor([[[[-26203.4121, -25282.4941,  -5818.7432,  ..., -25100.9961,
+            39405.0859, -12545.7461],
+          [-13634.2793,  20469.7266,  23775.0215,  ...,  23794.0723,
+            20693.8223,  30586.7070],
+          [-20459.4629,  -8447.5449, -16198.3389,  ..., -21998.8438,
+           -26287.2051, -27098.8184],
+          ...,
+          [  -565.0420,  -8366.1924, -53202.9609,  ..., -24468.0254,
+            -6425.6533,   6561.2544],
+          [ 12124.5156, -17905.5391, -28883.5176,  ...,  20545.2246,
+            -4052.0181,  15037.9404],
+          [ 16094.3057,  -5804.3389,   -936.0309,  ..., -68307.1094,
+           -40903.3828,  11904.1895]],
+
+         [[ 44103.9609,  22802.3438,  -1857.3420,  ...,  -2444.6731,
+           -13573.8311,  13384.3691],
+          [ -4551.5371, -22151.5039, -15105.1797,  ...,  -1793.7937,
+            23466.5391,  28307.6348],
+          [ 29889.1152,   1096.3306,  57900.7188,  ...,   4769.7715,
+           -43219.1914, -15489.7520],
+          ...,
+          [-35507.4648,  20635.0449,   4536.5337,  ..., -13424.0557,
+           -19625.5684, -28518.7969],
+          [-36780.5234,  15124.7383,  32987.7305,  ..., -19053.9727,
+             5669.0889,  -8692.0781],
+          [ -1867.6641,  17092.7344,  -1696.4286,  ..., -18525.1406,
+           -24984.4512,  -5315.0815]],
+
+         [[  4847.9043, -16521.0488,  21767.8203,  ...,   8235.0830,
+           -15161.6953,  37850.3320],
+          [ -1556.7893,  20972.8203,  13815.2715,  ..., -47463.6055,
+            -8198.1641,   8107.2637],
+          [ -9494.9307, -16878.0527, -13377.6680,  ..., -19851.5098,
+             2643.0054,  38798.1758],
+          ...,
+          [ -5062.4619,  21451.3652,   6019.7969,  ..., -16048.7607,
+           -33516.1836, -30935.8867],
+          [ 11784.0176,  20397.9746,  -5124.4951,  ..., -37399.9062,
+            15723.5586, -32603.1680],
+          [  4897.7319,  10391.4160,  11922.3213,  ...,  25040.4551,
+           -22192.5918, -16699.2461]],
+
+         [[-26090.8477, -21919.8281,   4085.2249,  ...,   8774.0850,
+            13086.5742, -26997.1816],
+          [-41775.4766,  24037.3008,  -2256.6130,  ..., -34255.1602,
+             1138.8759,  -2332.3003],
+          [-30700.3398,  -9564.8691, -18253.2637,  ..., -32534.3574,
+           -26109.7344,  -7356.8887],
+          ...,
+          [ -6710.3730,   6087.5366, -43468.7773,  ...,  -7974.4399,
+           -17161.3008,  -8356.5215],
+          [ 21556.3965,  26277.9844,  -9858.0762,  ..., -10943.9150,
+               94.5604, -28629.4844],
+          [  2702.3320,  15677.3604,  -8105.9111,  ...,   1111.4032,
+           -30816.9863, -25163.2207]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3->  56%|█████▌    | 14/25 [02:31<01:59, 10.88s/it] 60%|██████    | 15/25 [02:42<01:49, 10.97s/it]tensor([[[[ -50013.4453,  -48255.6797,  -11105.9971,  ...,  -47909.2188,
+             75210.9453,  -23945.5684],
+          [ -26023.2285,   39069.7930,   45378.4414,  ...,   45414.7734,
+             39497.5117,   58379.6641],
+          [ -39050.1875,  -16123.4658,  -30917.0918,  ...,  -41988.3242,
+            -50173.3438,  -51722.4609],
+          ...,
+          [  -1078.5255,  -15968.2324, -101546.3672,  ...,  -46701.1680,
+            -12264.4453,   12523.1836],
+          [  23141.5781,  -34175.5781,  -55128.8047,  ...,   39213.7852,
+             -7733.9497,   28702.2988],
+          [  30718.5879,  -11078.5039,   -1786.5918,  ..., -130375.1562,
+            -78070.7656,   22721.0234]],
+
+         [[  84179.5625,   43521.9766,   -3545.0281,  ...,   -4666.0293,
+            -25907.7910,   25546.2344],
+          [  -8687.2881,  -42279.6641,  -28830.6230,  ...,   -3423.6797,
+             44789.6914,   54029.7422],
+          [  57048.1914,    2092.5955,  110512.8125,  ...,    9103.9150,
+            -82490.7188,  -29564.7617],
+          ...,
+          [ -67771.7188,   39385.2500,    8658.6855,  ...,  -25621.9707,
+            -37458.5664,  -54432.7695],
+          [ -70201.5547,   28867.9512,   62962.3086,  ...,  -36367.5586,
+             10820.3311,  -16590.2520],
+          [  -3564.7524,   32624.1953,   -3237.9141,  ...,  -35358.2617,
+            -47686.8672,  -10144.7168]],
+
+         [[   9252.9561,  -31533.0762,   41547.3672,  ...,   15717.9551,
+            -28938.4863,   72243.4219],
+          [  -2971.4146,   40029.9961,   26368.6621,  ...,  -90591.8672,
+            -15647.4980,   15474.0156],
+          [ -18122.6289,  -32214.4590,  -25533.4434,  ...,  -37889.8203,
+              5044.5771,   74052.5547],
+          ...,
+          [  -9662.4932,   40943.3516,   11489.7012,  ...,  -30631.6602,
+            -63971.0195,  -59046.1328],
+          [  22491.7285,   38932.7969,   -9780.9199,  ...,  -71383.6641,
+             30010.8848,  -62228.4062],
+          [   9348.1328,   19833.6973,   22755.6582,  ...,   47793.6836,
+            -42358.1758,  -31873.2520]],
+
+         [[ -49798.6328,  -41837.5391,    7797.3101,  ...,   16746.7109,
+             24977.8027,  -51528.4688],
+          [ -79735.2109,   45879.0078,   -4307.1050,  ...,  -65381.4727,
+              2173.6973,   -4451.5464],
+          [ -58596.5820,  -18256.1328,  -34839.2930,  ...,  -62097.0547,
+            -49834.6211,  -14041.8184],
+          ...,
+          [ -12807.7900,   11619.0771,  -82967.0859,  ...,  -15220.5215,
+            -32755.1055,  -15949.8115],
+          [  41143.8633,   50155.7578,  -18815.6934,  ...,  -20888.2109,
+               180.4882,  -54644.0039],
+          [   5157.8672,   29922.7812,  -15471.3809,  ...,    2121.2751,
+            -58819.2031,  -48028.1133]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3-> tensor([[[[ -94371.7656,  -91054.9453,  -20956.2012,  ...,  -90401.1562,
+            141917.5938,  -45183.5430],
+          [ -49103.9531,   73721.8984,   85625.8281,  ...,   85694.3438,
+             74528.9531,  110158.2031],
+          [ -73684.8906,  -30423.7812,  -58338.2578,  ...,  -79228.9141,
+            -94673.4375,  -97596.5469],
+          ...,
+          [  -2035.1483,  -30130.9062, -191610.5938,  ...,  -88121.7266,
+            -23142.1719,   23630.3164],
+          [  43666.4648,  -64486.8164, -104024.0156,  ...,   73993.5000,
+            -14593.4219,   54159.1289],
+          [  57963.7656,  -20904.3223,   -3371.1938,  ..., -246008.5156,
+           -147313.9375,   42872.8906]],
+
+         [[ 158840.7969,   82122.8438,   -6689.2031,  ...,   -8804.4375,
+            -48886.0703,   48203.9023],
+          [ -16392.2344,  -79778.6094,  -54401.2578,  ...,   -6460.1743,
+             84514.9219,  101950.2578],
+          [ 107645.8047,    3948.6443,  208529.6250,  ...,   17178.4648,
+           -155653.9531,  -55786.6328],
+          ...,
+          [-127880.3125,   74317.0625,   16338.2939,  ...,  -48346.8047,
+            -70681.6094, -102710.7344],
+          [-132465.2500,   54471.6914,  118805.2422,  ...,  -68622.9297,
+             20417.1445,  -31304.6230],
+          [  -6726.4434,   61559.4492,   -6109.7158,  ...,  -66718.5234,
+            -89981.6797,  -19142.3711]],
+
+         [[  17459.6133,  -59500.6250,   78396.8516,  ...,   29658.6172,
+            -54604.7812,  136318.0938],
+          [  -5606.8735,   75533.6953,   49755.7500,  ..., -170940.2344,
+            -29525.6758,   29198.3438],
+          [ -34196.1094,  -60786.3320,  -48179.7656,  ...,  -71495.3594,
+              9518.7295,  139731.7969],
+          ...,
+          [ -18232.3965,   77257.1016,   21680.1875,  ...,  -57799.7422,
+           -120708.6562, -111415.7812],
+          [  42440.2969,   73463.3438,  -18455.8828,  ..., -134695.7188,
+             56628.3086, -117420.5000],
+          [  17639.2715,   37424.7617,   42938.2656,  ...,   90183.1719,
+            -79926.8516,  -60142.5664]],
+
+         [[ -93966.4531,  -78944.4219,   14712.9609,  ...,   31599.7871,
+             47131.2734,  -97230.4922],
+          [-150454.5625,   86570.3203,   -8127.1909,  ..., -123370.0938,
+              4101.5801,   -8399.7217],
+          [-110567.5469,  -34448.0391,  -65739.2188,  ..., -117172.6328,
+            -94034.3125,  -26495.9043],
+          ...,
+          [ -24167.3359,   21924.3867, -156552.8125,  ...,  -28720.0391,
+            -61806.5039,  -30096.1836],
+          [  77635.4922,   94640.2812,  -35503.8203,  ...,  -39414.5273,
+               340.5725, -103109.2969],
+          [   9732.5508,   56462.1328,  -29193.3203,  ...,    4002.6768,
+           -110987.5938,  -90625.6094]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3->  64%|██████▍   | 16/25 [02:54<01:40, 11.11s/it] 68%|██████▊   | 17/25 [03:05<01:28, 11.10s/it]tensor([[[[-177179.2812, -170952.0469,  -39344.4336,  ..., -169724.5469,
+            266444.7188,  -84830.3281],
+          [ -92190.7656,  138409.9844,  160759.1094,  ...,  160887.7188,
+            139925.1875,  206817.7188],
+          [-138340.5000,  -57119.4219, -109527.7422,  ..., -148749.1562,
+           -177745.6406, -183233.6875],
+          ...,
+          [  -3820.9570,  -56569.5977, -359741.3125,  ..., -165445.0625,
+            -43448.5664,   44364.9648],
+          [  81982.0547, -121071.4297, -195300.9531,  ...,  138919.8125,
+            -27398.5918,  101681.6016],
+          [ 108824.7031,  -39247.0312,   -6329.3071,  ..., -461871.3750,
+           -276576.1875,   80492.1328]],
+
+         [[ 298217.3750,  154182.4375,  -12558.7090,  ...,  -16529.9629,
+            -91781.6250,   90500.9453],
+          [ -30775.7285, -149781.1562, -102136.1719,  ...,  -12128.6650,
+            158673.4531,  191407.6562],
+          [ 202100.7656,    7413.4883,  391506.1562,  ...,   32251.9258,
+           -292234.1250, -104737.2656],
+          ...,
+          [-240090.2500,  139527.3125,   30674.4883,  ...,  -90769.2266,
+           -132701.9375, -192835.4062],
+          [-248698.2969,  102268.4141,  223052.1094,  ..., -128836.8281,
+             38332.3477,  -58773.2227],
+          [ -12628.6445,  115575.4062,  -11470.7568,  ..., -125261.4453,
+           -168937.0938,  -35939.0703]],
+
+         [[  32779.6914, -111710.0781,  147186.9688,  ...,   55682.8594,
+           -102518.2891,  255931.8125],
+          [ -10526.7119,  141811.5312,   93414.4531,  ..., -320933.5000,
+            -55433.2773,   54818.7383],
+          [ -64201.8789, -114123.9297,  -90455.6250,  ..., -134229.7344,
+             17871.0176,  262340.9375],
+          ...,
+          [ -34230.5820,  145047.1562,   40703.6523,  ..., -108516.7578,
+           -226625.7344, -209178.7500],
+          [  79680.0156,  137924.5312,  -34650.1914,  ..., -252885.8281,
+            106317.3672, -220452.3594],
+          [  33117.0547,   70263.5234,   80614.8906,  ...,  169315.3125,
+           -150059.5625, -112915.3516]],
+
+         [[-176418.3594, -148215.0625,   27623.0059,  ...,   59327.3203,
+             88487.0859, -182546.4062],
+          [-282472.5000,  162532.3281,  -15258.4775,  ..., -231622.5000,
+              7700.5278,  -15770.1240],
+          [-207586.2812,  -64674.8789, -123422.7891,  ..., -219987.0156,
+           -176545.7031,  -49745.0234],
+          ...,
+          [ -45373.1914,   41162.2031, -293921.6875,  ...,  -53920.7578,
+           -116039.2812,  -56504.4453],
+          [ 145757.5781,  177683.4062,  -66657.0000,  ...,  -73999.2109,
+               639.4155, -193583.6719],
+          [  18272.5098,  106005.4375,  -54809.2617,  ...,    7514.8530,
+           -208374.8594, -170146.0625]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3-> tensor([[[[-333125.6562, -321417.4062,  -73973.8672,  ..., -319109.4688,
+            500959.0312, -159494.7031],
+          [-173333.5156,  260233.0938,  302253.0312,  ...,  302494.7812,
+            263081.9375,  388850.6562],
+          [-260102.4531, -107393.6875, -205929.7656,  ..., -279672.3750,
+           -334190.4062, -344508.8750],
+          ...,
+          [  -7184.0596, -106359.9688, -676371.6250,  ..., -311063.3750,
+            -81690.3516,   83413.2656],
+          [ 154139.4688, -227633.7812, -367197.2500,  ...,  261191.5625,
+            -51513.7891,  191177.7812],
+          [ 204608.0000,  -73790.7344,  -11900.1396,  ..., -868392.7500,
+           -520007.8750,  151338.1406]],
+
+         [[ 560696.8125,  289887.8750,  -23612.3887,  ...,  -31078.9766,
+           -172564.2031,  170156.3906],
+          [ -57863.2852, -281612.6875, -192032.4219,  ...,  -22803.7910,
+            298331.7188,  359877.2812],
+          [ 379982.0000,   13938.6143,  736094.6250,  ...,   60638.8516,
+           -549447.1875, -196923.0000],
+          ...,
+          [-451408.3750,  262333.7812,   57672.9688,  ..., -170660.7812,
+           -249501.0469, -362561.6875],
+          [-467592.9062,  192281.0781,  419373.8438,  ..., -242234.0000,
+             72070.9609, -110503.1562],
+          [ -23743.9004,  217300.3594,  -21566.8789,  ..., -235511.7500,
+           -317628.9688,  -67571.2656]],
+
+         [[  61631.0664, -210032.9688,  276735.2188,  ...,  104692.7266,
+           -192750.8750,  481193.0312],
+          [ -19791.9414,  266628.5312,  175634.2344,  ..., -603406.6875,
+           -104223.4766,  103068.0625],
+          [-120709.8984, -214571.3594, -170071.1719,  ..., -252373.5469,
+             33600.3750,  493243.2188],
+          ...,
+          [ -64358.9883,  272712.0000,   76529.3828,  ..., -204029.0000,
+           -426092.8750, -393289.7500],
+          [ 149811.2969,  259320.3281,  -65147.9375,  ..., -475466.0625,
+            199893.7500, -414486.0000],
+          [  62265.4219,  132106.7500,  151568.9844,  ...,  318340.0312,
+           -282136.2188, -212299.1250]],
+
+         [[-331694.9688, -278668.2188,   51935.7031,  ...,  111544.8906,
+            166369.9688, -343216.6875],
+          [-531093.8125,  305586.9375,  -28688.3945,  ..., -435487.5938,
+             14478.2080,  -29650.3555],
+          [-390295.6875, -121599.2422, -232054.7500,  ..., -413611.0625,
+           -331934.3750,  -93528.6719],
+          ...,
+          [ -85308.8750,   77391.6094, -552620.0625,  ..., -101379.7266,
+           -218172.5625, -106237.5078],
+          [ 274047.7812,  334073.4375, -125325.8750,  ..., -139130.4375,
+              1202.2080, -363968.5312],
+          [  34355.2930,  199307.3438, -103050.2031,  ...,   14129.1221,
+           -391778.3750, -319902.0625]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3->  72%|███████▏  | 18/25 [03:17<01:20, 11.57s/it] 76%|███████▌  | 19/25 [03:29<01:09, 11.63s/it]tensor([[[[ -632299.5000,  -610076.1875,  -140408.3750,  ...,
+            -605695.5625,   950860.7500,  -302733.8438],
+          [ -329001.0312,   493943.4688,   573700.6875,  ...,
+             574159.5000,   499350.7812,   738069.9375],
+          [ -493695.5312,  -203841.8906,  -390871.3125,  ...,
+            -530840.8125,  -634320.3750,  -653905.7500],
+          ...,
+          [  -13635.9688,  -201879.8281, -1283808.1250,  ...,
+            -590423.5000,  -155054.9531,   158325.0938],
+          [  292569.1875,  -432067.3438,  -696970.1250,  ...,
+             495762.6562,   -97777.3594,   362870.8750],
+          [  388362.5312,  -140060.7812,   -22587.4473,  ...,
+           -1648279.6250,  -987017.0625,   287252.0000]],
+
+         [[ 1064247.8750,   550230.6875,   -44818.2148,  ...,
+             -58990.3906,  -327540.7812,   322970.6250],
+          [ -109829.1484,  -534523.6250,  -364493.0000,  ...,
+             -43283.3906,   566257.7500,   683076.2500],
+          [  721236.5625,    26456.6777,  1397167.1250,  ...,
+             115097.4688, -1042895.1250,  -373775.8750],
+          ...,
+          [ -856809.6250,   497930.6875,   109467.9375,  ...,
+            -323927.9688,  -473573.1562,  -688171.4375],
+          [ -887529.2500,   364964.9688,   796005.3750,  ...,
+            -459779.7188,   136796.4844,  -209743.9375],
+          [  -45067.8555,   412453.6250,   -40935.6875,  ...,
+            -447020.4062,  -602885.5000,  -128255.7578]],
+
+         [[  116980.7109,  -398659.5938,   525265.8750,  ...,
+             198715.2500,  -365856.7500,   913343.2500],
+          [  -37566.7305,   506082.5312,   333368.0000,  ...,
+           -1145314.6250,  -197824.5469,   195631.5312],
+          [ -229117.1875,  -407273.7812,  -322808.8438,  ...,
+            -479025.4375,    63776.2109,   936215.5000],
+          ...,
+          [ -122158.5391,   517629.4062,   145258.9219,  ...,
+            -387263.5625,  -808758.7500,  -746495.8125],
+          [  284353.9688,   492210.9375,  -123656.0469,  ...,
+            -902472.9375,   379414.4688,  -786727.9375],
+          [  118184.8359,   250749.3125,   287690.1875,  ...,
+             604235.0625,  -535517.3750,  -402961.0000]],
+
+         [[ -629583.9375,  -528934.8125,    98578.1719,  ...,
+             211721.1875,   315783.6250,  -651453.0000],
+          [-1008059.0000,   580028.6875,   -54452.8906,  ...,
+            -826590.6875,    27480.7852,   -56278.7539],
+          [ -740812.8125,  -230805.2500,  -440458.6875,  ...,
+            -785067.2500,  -630038.2500,  -177525.0000],
+          ...,
+          [ -161923.1094,   146895.5625, -1048917.5000,  ...,
+            -192426.9531,  -414109.1250,  -201647.4375],
+          [  520164.9062,   634098.4375,  -237878.6094,  ...,
+            -264080.8438,     2281.8918,  -690841.7500],
+          [   65209.1484,   378301.4688,  -195597.5938,  ...,
+              26818.2012,  -743627.1250,  -607200.0000]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3-> tensor([[[[-1224145.5000, -1181120.6250,  -271833.5938,  ...,
+           -1172639.5000,  1840886.6250,  -586099.1875],
+          [ -636953.0000,   956285.1250,  1110696.8750,  ...,
+            1111585.1250,   966753.8125,  1428919.2500],
+          [ -955805.2500,  -394642.2500,  -756735.1875,  ...,
+           -1027719.1875, -1228057.7500, -1265975.6250],
+          ...,
+          [  -26399.5684,  -390843.6875, -2485480.0000,  ...,
+           -1143072.5000,  -300189.7500,   306520.7812],
+          [  566420.2500,  -836491.6250, -1349349.1250,  ...,
+             959807.1250,  -189299.0781,   702525.8125],
+          [  751878.1875,  -271160.6875,   -43729.8008,  ...,
+           -3191104.7500, -1910886.3750,   556126.0000]],
+
+         [[ 2060406.7500,  1065258.3750,   -86769.0234,  ...,
+            -114206.6406,  -634126.0000,   625278.1250],
+          [ -212631.5469, -1034849.1250,  -705666.2500,  ...,
+             -83797.5156,  1096287.1250,  1322450.3750],
+          [ 1396329.5000,    51220.7500,  2704945.5000,  ...,
+             222831.2031, -2019067.2500,  -723638.1875],
+          ...,
+          [-1658801.8750,   964004.4375,   211932.2656,  ...,
+            -627131.4375,  -916847.8125, -1332314.7500],
+          [-1718275.6250,   706580.0000,  1541083.3750,  ...,
+            -890143.3750,   264840.9062,  -406068.7812],
+          [  -87252.3438,   798519.0625,   -79252.3750,  ...,
+            -865441.1875, -1167199.2500,  -248305.9375]],
+
+         [[  226477.1250,  -771813.5000,  1016926.0000,  ...,
+             384716.9688,  -708306.5000,  1768252.1250],
+          [  -72730.0234,   979786.6250,   645407.5625,  ...,
+           -2217353.5000,  -382992.5312,   378746.8750],
+          [ -443575.8125,  -788490.8125,  -624964.8750,  ...,
+            -927403.6250,   123472.1016,  1812533.1250],
+          ...,
+          [ -236501.5312,  1002141.6875,   281224.3438,  ...,
+            -749750.5625, -1565774.3750, -1445232.0000],
+          [  550515.3750,   952930.9375,  -239400.7812,  ...,
+           -1747206.8750,   734554.5000, -1523122.0000],
+          [  228808.3906,   485456.0625,   556974.4375,  ...,
+            1169812.1250, -1036773.1250,  -780141.1875]],
+
+         [[-1218888.0000, -1024029.1250,   190849.4531,  ...,
+             409896.7188,   611363.8125, -1261227.0000],
+          [-1951623.8750,  1122948.0000,  -105421.9531,  ...,
+           -1600297.3750,    53203.3711,  -108956.8594],
+          [-1434229.5000,  -446843.9375,  -852737.5000,  ...,
+           -1519907.0000, -1219767.5000,  -343692.2500],
+          ...,
+          [ -313486.6250,   284393.0000, -2030726.7500,  ...,
+            -372542.7500,  -801724.1250,  -390393.8125],
+          [ 1007050.5000,  1227628.2500,  -460538.0625,  ...,
+            -511266.1875,     4417.7949, -1337484.3750],
+          [  126246.3359,   732399.7500,  -378681.1250,  ...,
+              51920.5977, -1439678.1250, -1175552.3750]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3->  80%|████████  | 20/25 [03:41<00:58, 11.60s/it] 84%|████████▍ | 21/25 [03:52<00:45, 11.41s/it]tensor([[[[-2451183.5000, -2365032.0000,  -544309.4375,  ...,
+           -2348049.5000,  3686122.7500, -1173583.2500],
+          [-1275411.1250,  1914829.8750,  2224018.2500,  ...,
+            2225796.7500,  1935791.8750,  2861214.7500],
+          [-1913868.7500,  -790216.8750, -1515258.5000,  ...,
+           -2057866.7500, -2459017.5000, -2534942.2500],
+          ...,
+          [  -52861.5586,  -782610.8125, -4976832.5000,  ...,
+           -2288846.0000,  -601088.8125,   613765.7500],
+          [ 1134178.7500, -1674959.6250, -2701886.5000,  ...,
+            1921882.1250,  -379045.4688,  1406711.5000],
+          [ 1505533.0000,  -542962.1250,   -87562.9531,  ...,
+           -6389750.0000, -3826288.0000,  1113565.8750]],
+
+         [[ 4125681.5000,  2133033.5000,  -173743.0625,  ...,
+            -228683.1094, -1269750.2500,  1252033.6250],
+          [ -425765.4375, -2072143.3750, -1412999.7500,  ...,
+            -167793.0000,  2195164.2500,  2648025.5000],
+          [ 2795958.5000,   102562.5781,  5416282.0000,  ...,
+             446188.9375, -4042904.7500, -1448986.3750],
+          ...,
+          [-3321523.2500,  1930286.6250,   424365.2812,  ...,
+           -1255744.7500, -1835861.7500, -2667777.5000],
+          [-3440611.0000,  1414829.5000,  3085808.0000,  ...,
+           -1782389.7500,   530307.5625,  -813096.9375],
+          [ -174710.8594,  1598924.7500,  -158692.0312,  ...,
+           -1732927.2500, -2337156.2500,  -497198.5938]],
+
+         [[  453489.3125, -1545450.6250,  2036254.6250,  ...,
+             770342.8750, -1418286.5000,  3540682.2500],
+          [ -145631.9219,  1961888.1250,  1292340.1250,  ...,
+           -4439946.0000,  -766889.8750,   758388.6875],
+          [ -888199.7500, -1578844.6250, -1251406.5000,  ...,
+           -1856998.6250,   247235.9219,  3629348.5000],
+          ...,
+          [ -473561.8438,  2006651.2500,   563113.1250,  ...,
+           -1501272.6250, -3135248.0000, -2893878.7500],
+          [ 1102331.5000,  1908113.5000,  -479367.1875,  ...,
+           -3498542.0000,  1470844.6250, -3049842.7500],
+          [  458157.4062,   972059.1250,  1115265.0000,  ...,
+            2342388.5000, -2075996.1250, -1562125.7500]],
+
+         [[-2440656.0000, -2050477.7500,   382149.8750,  ...,
+             820761.8750,  1224172.2500, -2525434.0000],
+          [-3907859.0000,  2248549.5000,  -211092.9844,  ...,
+           -3204376.0000,   106532.4297,  -218171.1562],
+          [-2871848.2500,  -894743.6250, -1707489.8750,  ...,
+           -3043405.2500, -2442417.0000,  -688196.5625],
+          ...,
+          [ -627713.8750,   569458.0000, -4066251.5000,  ...,
+            -745965.7500, -1605342.6250,  -781710.1250],
+          [ 2016480.3750,  2458157.0000,  -922164.2500,  ...,
+           -1023740.3750,     8846.0312, -2678129.0000],
+          [  252790.9844,  1466530.0000,  -758257.0000,  ...,
+             103963.8594, -2882757.7500, -2353882.5000]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3-> tensor([[[[ -5180063.0000,  -4998000.0000,  -1150284.1250,  ...,
+            -4962111.0000,   7789848.0000,  -2480122.2500],
+          [ -2695314.5000,   4046591.7500,   4699997.0000,  ...,
+             4703755.5000,   4090890.7500,   6046578.5000],
+          [ -4044560.7500,  -1669958.0000,  -3202181.5000,  ...,
+            -4348870.5000,  -5196619.0000,  -5357070.0000],
+          ...,
+          [  -111711.8750,  -1653884.0000, -10517493.0000,  ...,
+            -4836996.5000,  -1270275.3750,   1297065.5000],
+          [  2396849.2500,  -3539676.2500,  -5709872.0000,  ...,
+             4061495.5000,   -801033.2500,   2972790.5000],
+          [  3181628.7500,  -1147436.7500,   -185046.0156,  ...,
+           -13503398.0000,  -8086059.0000,   2353288.2500]],
+
+         [[  8718764.0000,   4507720.0000,   -367169.5625,  ...,
+             -483273.8438,  -2683351.2500,   2645911.0000],
+          [  -899766.1250,  -4379041.0000,  -2986079.0000,  ...,
+             -354595.3438,   4639020.0000,   5596047.5000],
+          [  5908673.0000,    216744.6094,  11446179.0000,  ...,
+              942926.9375,  -8543833.0000,  -3062129.5000],
+          ...,
+          [ -7019344.0000,   4079256.7500,    896807.1875,  ...,
+            -2653753.7500,  -3879709.5000,  -5637789.5000],
+          [ -7271011.0000,   2989946.0000,   6521209.0000,  ...,
+            -3766707.2500,   1120694.0000,  -1718310.2500],
+          [  -369214.8438,   3378992.7500,   -335362.3438,  ...,
+            -3662178.5000,  -4939090.0000,  -1050725.2500]],
+
+         [[   958354.6875,  -3265986.2500,   4303198.0000,  ...,
+             1627958.3750,  -2997251.5000,   7482490.5000],
+          [  -307762.6250,   4146039.7500,   2731090.5000,  ...,
+            -9382896.0000,  -1620661.0000,   1602695.8750],
+          [ -1877024.1250,  -3336557.7500,  -2644585.5000,  ...,
+            -3924377.7500,    522481.3750,   7669868.5000],
+          ...,
+          [ -1000773.8125,   4240637.5000,   1190021.7500,  ...,
+            -3172625.2500,  -6625690.0000,  -6115606.0000],
+          [  2329546.7500,   4032398.2500,  -1013042.1250,  ...,
+            -7393436.0000,   3108321.7500,  -6445204.5000],
+          [   968219.8125,   2054243.5000,   2356879.0000,  ...,
+             4950148.0000,  -4387183.0000,  -3301225.7500]],
+
+         [[ -5157815.5000,  -4333255.5000,    807593.7500,  ...,
+             1734508.5000,   2587031.7500,  -5336976.0000],
+          [ -8258442.0000,   4751838.0000,   -446100.8125,  ...,
+            -6771777.0000,    225133.9844,   -461059.0625],
+          [ -6069049.5000,  -1890853.3750,  -3608422.0000,  ...,
+            -6431599.5000,  -5161536.5000,  -1454359.2500],
+          ...,
+          [ -1326541.8750,   1203430.2500,  -8593171.0000,  ...,
+            -1576442.3750,  -3392555.2500,  -1651980.8750],
+          [  4261409.0000,   5194799.5000,  -1948801.0000,  ...,
+            -2163461.0000,     18694.2383,  -5659665.0000],
+          [   534220.8750,   3099204.0000,  -1602417.2500,  ...,
+              219705.8125,  -6092105.0000,  -4974438.0000]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3->  88%|████████▊ | 22/25 [04:03<00:34, 11.35s/it] 92%|█████████▏| 23/25 [04:14<00:22, 11.37s/it]tensor([[[[-11934926.0000, -11515452.0000,  -2650268.2500,  ...,
+           -11432763.0000,  17947904.0000,  -5714231.0000],
+          [ -6210037.0000,   9323396.0000,  10828850.0000,  ...,
+            10837508.0000,   9425462.0000,  13931389.0000],
+          [ -9318716.0000,  -3847603.0000,  -7377864.5000,  ...,
+           -10019850.0000, -11973071.0000, -12342752.0000],
+          ...,
+          [  -257385.5156,  -3810568.0000, -24232426.0000,  ...,
+           -11144498.0000,  -2926729.5000,   2988454.0000],
+          [  5522368.5000,  -8155456.0000, -13155612.0000,  ...,
+             9357734.0000,  -1845590.0000,   6849344.5000],
+          [  7330510.0000,  -2643707.7500,   -426348.2188,  ...,
+           -31111988.0000, -18630376.0000,   5422004.0000]],
+
+         [[ 20088136.0000,  10385840.0000,   -845963.0000,  ...,
+            -1113468.5000,  -6182472.5000,   6096210.0000],
+          [ -2073071.6250, -10089363.0000,  -6879961.5000,  ...,
+             -816991.8125,  10688358.0000,  12893360.0000],
+          [ 13613654.0000,    499382.1875,  26372132.0000,  ...,
+             2172514.7500, -19685092.0000,  -7055182.5000],
+          ...,
+          [-16172652.0000,   9398656.0000,   2066254.3750,  ...,
+            -6114280.0000,  -8938897.0000, -12989534.0000],
+          [-16752498.0000,   6888871.0000,  15024943.0000,  ...,
+            -8678538.0000,   2582092.0000,  -3959007.2500],
+          [  -850675.4375,   7785239.0000,   -772678.7500,  ...,
+            -8437703.0000, -11379722.0000,  -2420883.5000]],
+
+         [[  2208060.2500,  -7524871.0000,   9914619.0000,  ...,
+             3750835.5000,  -6905703.0000,  17239746.0000],
+          [  -709088.6875,   9552525.0000,   6292465.0000,  ...,
+           -21618304.0000,  -3734022.5000,   3692630.5000],
+          [ -4324685.5000,  -7687468.0000,  -6093156.0000,  ...,
+            -9041813.0000,   1203803.2500,  17671470.0000],
+          ...,
+          [ -2305794.5000,   9770479.0000,   2741824.2500,  ...,
+            -7309766.0000, -15265668.0000, -14090430.0000],
+          [  5367303.5000,   9290693.0000,  -2334060.7500,  ...,
+           -17034564.0000,   7161610.0000, -14849828.0000],
+          [  2230790.0000,   4733001.0000,   5430277.5000,  ...,
+            11405199.0000, -10108122.0000,  -7606063.5000]],
+
+         [[-11883668.0000,  -9983872.0000,   1860705.6250,  ...,
+             3996328.2500,   5960551.5000, -12296456.0000],
+          [-19027550.0000,  10948291.0000,  -1027821.6250,  ...,
+           -15602256.0000,    518711.3125,  -1062285.3750],
+          [-13983162.0000,  -4356549.0000,  -8313847.5000,  ...,
+           -14818482.0000, -11892241.0000,  -3350860.7500],
+          ...,
+          [ -3056368.0000,   2772717.5000, -19798768.0000,  ...,
+            -3632142.0000,  -7816487.0000,  -3806183.7500],
+          [  9818338.0000,  11968879.0000,  -4490061.0000,  ...,
+            -4984639.5000,     43071.7539, -13039935.0000],
+          [  1230851.2500,   7140603.0000,  -3691988.5000,  ...,
+              506204.7812, -14036281.0000, -11461164.0000]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3-> tensor([[[[-31836788.0000, -30717832.0000,  -7069674.0000,  ...,
+           -30497256.0000,  47876600.0000, -15242892.0000],
+          [-16565470.0000,  24870454.0000,  28886298.0000,  ...,
+            28909392.0000,  25142714.0000,  37162420.0000],
+          [-24857968.0000, -10263602.0000, -19680686.0000,  ...,
+           -26728266.0000, -31938542.0000, -32924678.0000],
+          ...,
+          [  -686583.9375, -10164810.0000, -64640760.0000,  ...,
+           -29728300.0000,  -7807142.5000,   7971795.0000],
+          [ 14731092.0000, -21754936.0000, -35093008.0000,  ...,
+            24962048.0000,  -4923169.0000,  18270840.0000],
+          [ 19554366.0000,  -7052173.5000,  -1137297.2500,  ...,
+           -82992208.0000, -49697112.0000,  14463366.0000]],
+
+         [[ 53585736.0000,  27704552.0000,  -2256633.0000,  ...,
+            -2970212.2500, -16491940.0000,  16261832.0000],
+          [ -5529983.5000, -26913692.0000, -18352516.0000,  ...,
+            -2179351.5000,  28511532.0000,  34393440.0000],
+          [ 36314852.0000,   1332117.7500,  70348488.0000,  ...,
+             5795251.5000, -52510608.0000, -18819920.0000],
+          ...,
+          [-43141056.0000,  25071208.0000,   5511799.0000,  ...,
+           -16310036.0000, -23844790.0000, -34649988.0000],
+          [-44687816.0000,  18376278.0000,  40079508.0000,  ...,
+           -23150276.0000,   6887812.0000, -10560776.0000],
+          [ -2269203.2500,  20767370.0000,  -2061145.0000,  ...,
+           -22507840.0000, -30355768.0000,  -6457783.0000]],
+
+         [[  5890070.0000, -20072830.0000,  26447558.0000,  ...,
+            10005472.0000, -18421180.0000,  45987564.0000],
+          [ -1891516.3750,  25481660.0000,  16785350.0000,  ...,
+           -57667508.0000,  -9960623.0000,   9850208.0000],
+          [-11536234.0000, -20506562.0000, -16253684.0000,  ...,
+           -24119322.0000,   3211183.0000,  47139204.0000],
+          ...,
+          [ -6150779.5000,  26063058.0000,   7313902.5000,  ...,
+           -19499030.0000, -40721652.0000, -37586668.0000],
+          [ 14317451.0000,  24783214.0000,  -6226180.0000,  ...,
+           -45440236.0000,  19103820.0000, -39612384.0000],
+          [  5950702.0000,  12625430.0000,  14485436.0000,  ...,
+            30423730.0000, -26963734.0000, -20289412.0000]],
+
+         [[-31700058.0000, -26632292.0000,   4963491.0000,  ...,
+            10660330.0000,  15899958.0000, -32801182.0000],
+          [-50756588.0000,  29204912.0000,  -2741746.5000,  ...,
+           -41619512.0000,   1383678.6250,  -2833679.7500],
+          [-37300520.0000, -11621232.0000, -22177450.0000,  ...,
+           -39528772.0000, -31722924.0000,  -8938526.0000],
+          ...,
+          [ -8152958.0000,   7396311.5000, -52813840.0000,  ...,
+            -9688854.0000, -20850724.0000, -10153115.0000],
+          [ 26190726.0000,  31927364.0000, -11977380.0000,  ...,
+           -13296682.0000,    114895.2578, -34784432.0000],
+          [  3283334.5000,  19047784.0000,  -9848496.0000,  ...,
+             1350317.2500, -37442220.0000, -30573018.0000]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3->  96%|█████████▌| 24/25 [04:25<00:11, 11.30s/it]100%|██████████| 25/25 [04:37<00:00, 11.27s/it]100%|██████████| 25/25 [04:37<00:00, 11.09s/it]
+tensor([[[[-1.1340e+08, -1.0941e+08, -2.5181e+07,  ..., -1.0862e+08,
+            1.7053e+08, -5.4292e+07],
+          [-5.9003e+07,  8.8583e+07,  1.0289e+08,  ...,  1.0297e+08,
+            8.9553e+07,  1.3236e+08],
+          [-8.8539e+07, -3.6557e+07, -7.0099e+07,  ..., -9.5201e+07,
+           -1.1376e+08, -1.1727e+08],
+          ...,
+          [-2.4455e+06, -3.6205e+07, -2.3024e+08,  ..., -1.0589e+08,
+           -2.7807e+07,  2.8394e+07],
+          [ 5.2469e+07, -7.7487e+07, -1.2499e+08,  ...,  8.8910e+07,
+           -1.7535e+07,  6.5077e+07],
+          [ 6.9649e+07, -2.5118e+07, -4.0508e+06,  ..., -2.9560e+08,
+           -1.7701e+08,  5.1516e+07]],
+
+         [[ 1.9086e+08,  9.8678e+07, -8.0377e+06,  ..., -1.0579e+07,
+           -5.8741e+07,  5.7921e+07],
+          [-1.9697e+07, -9.5861e+07, -6.5368e+07,  ..., -7.7624e+06,
+            1.0155e+08,  1.2250e+08],
+          [ 1.2935e+08,  4.7447e+06,  2.5057e+08,  ...,  2.0642e+07,
+           -1.8703e+08, -6.7033e+07],
+          ...,
+          [-1.5366e+08,  8.9299e+07,  1.9632e+07,  ..., -5.8093e+07,
+           -8.4930e+07, -1.2342e+08],
+          [-1.5917e+08,  6.5453e+07,  1.4276e+08,  ..., -8.2457e+07,
+            2.4533e+07, -3.7615e+07],
+          [-8.0824e+06,  7.3969e+07, -7.3414e+06,  ..., -8.0168e+07,
+           -1.0812e+08, -2.3001e+07]],
+
+         [[ 2.0979e+07, -7.1495e+07,  9.4201e+07,  ...,  3.5637e+07,
+           -6.5612e+07,  1.6380e+08],
+          [-6.7372e+06,  9.0760e+07,  5.9786e+07,  ..., -2.0540e+08,
+           -3.5478e+07,  3.5084e+07],
+          [-4.1090e+07, -7.3040e+07, -5.7892e+07,  ..., -8.5908e+07,
+            1.1438e+07,  1.6790e+08],
+          ...,
+          [-2.1908e+07,  9.2831e+07,  2.6051e+07,  ..., -6.9452e+07,
+           -1.4504e+08, -1.3388e+08],
+          [ 5.0996e+07,  8.8273e+07, -2.2176e+07,  ..., -1.6185e+08,
+            6.8044e+07, -1.4109e+08],
+          [ 2.1195e+07,  4.4969e+07,  5.1594e+07,  ...,  1.0836e+08,
+           -9.6039e+07, -7.2267e+07]],
+
+         [[-1.1291e+08, -9.4859e+07,  1.7679e+07,  ...,  3.7970e+07,
+            5.6632e+07, -1.1683e+08],
+          [-1.8078e+08,  1.0402e+08, -9.7655e+06,  ..., -1.4824e+08,
+            4.9284e+06, -1.0093e+07],
+          [-1.3286e+08, -4.1392e+07, -7.8992e+07,  ..., -1.4079e+08,
+           -1.1299e+08, -3.1837e+07],
+          ...,
+          [-2.9039e+07,  2.6344e+07, -1.8811e+08,  ..., -3.4510e+07,
+           -7.4266e+07, -3.6163e+07],
+          [ 9.3286e+07,  1.1372e+08, -4.2661e+07,  ..., -4.7360e+07,
+            4.0923e+05, -1.2390e+08],
+          [ 1.1695e+07,  6.7844e+07, -3.5078e+07,  ...,  4.8096e+06,
+           -1.3336e+08, -1.0889e+08]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
+--type(latents-3-> tensor([[[[-5.6467e+08, -5.4482e+08, -1.2539e+08,  ..., -5.4091e+08,
+            8.4916e+08, -2.7035e+08],
+          [-2.9381e+08,  4.4111e+08,  5.1234e+08,  ...,  5.1275e+08,
+            4.4594e+08,  6.5913e+08],
+          [-4.4089e+08, -1.8204e+08, -3.4906e+08,  ..., -4.7406e+08,
+           -5.6647e+08, -5.8397e+08],
+          ...,
+          [-1.2178e+07, -1.8029e+08, -1.1465e+09,  ..., -5.2727e+08,
+           -1.3847e+08,  1.4139e+08],
+          [ 2.6128e+08, -3.8585e+08, -6.2242e+08,  ...,  4.4274e+08,
+           -8.7319e+07,  3.2406e+08],
+          [ 3.4682e+08, -1.2508e+08, -2.0172e+07,  ..., -1.4720e+09,
+           -8.8145e+08,  2.5653e+08]],
+
+         [[ 9.5042e+08,  4.9138e+08, -4.0025e+07,  ..., -5.2681e+07,
+           -2.9251e+08,  2.8843e+08],
+          [-9.8082e+07, -4.7735e+08, -3.2551e+08,  ..., -3.8654e+07,
+            5.0569e+08,  6.1002e+08],
+          [ 6.4409e+08,  2.3627e+07,  1.2477e+09,  ...,  1.0279e+08,
+           -9.3135e+08, -3.3380e+08],
+          ...,
+          [-7.6517e+08,  4.4467e+08,  9.7759e+07,  ..., -2.8928e+08,
+           -4.2292e+08, -6.1457e+08],
+          [-7.9260e+08,  3.2593e+08,  7.1087e+08,  ..., -4.1060e+08,
+            1.2216e+08, -1.8731e+08],
+          [-4.0247e+07,  3.6834e+08, -3.6557e+07,  ..., -3.9921e+08,
+           -5.3840e+08, -1.1454e+08]],
+
+         [[ 1.0447e+08, -3.5602e+08,  4.6908e+08,  ...,  1.7746e+08,
+           -3.2673e+08,  8.1565e+08],
+          [-3.3549e+07,  4.5195e+08,  2.9771e+08,  ..., -1.0228e+09,
+           -1.7667e+08,  1.7471e+08],
+          [-2.0461e+08, -3.6371e+08, -2.8828e+08,  ..., -4.2779e+08,
+            5.6955e+07,  8.3608e+08],
+          ...,
+          [-1.0909e+08,  4.6226e+08,  1.2972e+08,  ..., -3.4584e+08,
+           -7.2226e+08, -6.6665e+08],
+          [ 2.5394e+08,  4.3956e+08, -1.1043e+08,  ..., -8.0595e+08,
+            3.3883e+08, -7.0258e+08],
+          [ 1.0554e+08,  2.2393e+08,  2.5692e+08,  ...,  5.3961e+08,
+           -4.7824e+08, -3.5986e+08]],
+
+         [[-5.6224e+08, -4.7236e+08,  8.8034e+07,  ...,  1.8908e+08,
+            2.8201e+08, -5.8177e+08],
+          [-9.0024e+08,  5.1799e+08, -4.8629e+07,  ..., -7.3818e+08,
+            2.4541e+07, -5.0259e+07],
+          [-6.6158e+08, -2.0612e+08, -3.9335e+08,  ..., -7.0110e+08,
+           -5.6265e+08, -1.5854e+08],
+          ...,
+          [-1.4460e+08,  1.3118e+08, -9.3673e+08,  ..., -1.7185e+08,
+           -3.6982e+08, -1.8008e+08],
+          [ 4.6453e+08,  5.6628e+08, -2.1244e+08,  ..., -2.3584e+08,
+            2.0378e+06, -6.1695e+08],
+          [ 5.8235e+07,  3.3784e+08, -1.7468e+08,  ...,  2.3950e+07,
+           -6.6409e+08, -5.4226e+08]]]])
+                                                                                                                                                                                    
+---type(stable_diff_RES_IMAGE--->
+<class 'PIL.Image.Image'>
