@@ -8,11 +8,6 @@ __pycache__/
 # C extensions
 *.so
 
-# tests and logs
-tests/fixtures/cached_*_text.txt
-logs/
-lightning_logs/
-lang_code_data/
 
 # Distribution / packaging
 .Python
@@ -61,7 +56,6 @@ coverage.xml
 *.pot
 
 # Django stuff:
-*.log
 local_settings.py
 db.sqlite3
 

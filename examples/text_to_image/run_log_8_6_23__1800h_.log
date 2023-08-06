@@ -1,0 +1,21 @@
+--torch_device1- cpu
+--torch_device2- cuda
+--type(vae---> <class 'diffusers.models.autoencoder_kl.AutoencoderKL'>
+--type(tokenizer---> <class 'transformers.models.clip.tokenization_clip.CLIPTokenizer'>
+"""
+
+"""
+--type(text_encoder---> <class 'transformers.models.clip.modeling_clip.CLIPTextModel'>
+
+https://huggingface.co/BAAI/AltDiffusion/blob/main/README.md?code=true
+
+[AltCLIP](https://github.com/FlagAI-Open/FlagAI/tree/master/examples/AltCLIP/README.md)，基于 
+[Stable Diffusion](https://huggingface.co/CompVis/stable-diffusion) 
+训练了双语Diffusion模型，训练数据来自 [WuDao数据集]
+(https://data.baai.ac.cn/details/WuDaoCorporaText) 和 
+[LAION](https://huggingface.co/datasets/ChristophSchuhmann/improved_aesthetics_6plus) 。
+
+我们的版本
+
+--type(unet---> <class 'diffusers.models.unet_2d_condition.UNet2DConditionModel'>
+--type(scheduler---> <class 'diffusers.schedulers.scheduling_unipc_multistep.UniPCMultistepScheduler'>
