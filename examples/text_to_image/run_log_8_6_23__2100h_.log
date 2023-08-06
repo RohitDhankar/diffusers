@@ -1,0 +1,20 @@
+--torch_device1- cpu
+--torch_device2- cuda
+--type(vae---> <class 'diffusers.models.autoencoder_kl.AutoencoderKL'>
+--type(tokenizer---> <class 'transformers.models.clip.tokenization_clip.CLIPTokenizer'>
+--type(text_encoder---> <class 'transformers.models.clip.modeling_clip.CLIPTextModel'>
+--type(unet---> <class 'diffusers.models.unet_2d_condition.UNet2DConditionModel'>
+--type(scheduler---> <class 'diffusers.schedulers.scheduling_unipc_multistep.UniPCMultistepScheduler'>
+--torch_device1- cpu
+--torch_device2- cuda
+--text_input---> {'input_ids': tensor([[49406,  1731, 22975,   525,   320,  8686,  2619, 49407, 49407, 49407,
+         49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407,
+         49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407,
+         49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407,
+         49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407,
+         49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407,
+         49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407, 49407,
+         49407, 49407, 49407, 49407, 49407, 49407, 49407]]), 'attention_mask': tensor([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0]])}

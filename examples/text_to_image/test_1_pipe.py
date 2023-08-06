@@ -79,7 +79,6 @@ def stable_diffusion_test_pipe():
     text_encoder = CLIPTextModel.from_pretrained("CompVis/stable-diffusion-v1-4", subfolder="text_encoder")
     print("--type(text_encoder--->",type(text_encoder))
     ##<class 'transformers.models.clip.modeling_clip.CLIPTextModel'>
-    
 
 
     unet = UNet2DConditionModel.from_pretrained("CompVis/stable-diffusion-v1-4", subfolder="unet")
@@ -111,23 +110,27 @@ def stable_diffusion_test_pipe():
     text_input = tokenizer(
     prompt, padding="max_length", max_length=tokenizer.model_max_length, truncation=True, return_tensors="pt")
     print("--text_input--->",text_input)
+    print("--text_input--->",text_input.input_ids)
+    print("--text_input--text_input.attention_mask-->",text_input.attention_mask)
+    ## input_ids + attention_mask
 
-    # with torch.no_grad():
-    #     text_embeddings = text_encoder(text_input.input_ids.to(torch_device))[0]
-    #     print("--type(text_embeddings-->",text_embeddings)
+    with torch.no_grad():
+        text_embeddings = text_encoder(text_input.input_ids.to(torch_device1))[0]
+        print("--type(text_embeddings-->",type(text_embeddings))
+        print("--text_embeddings-->",text_embeddings)
 
-    # #
-    # max_length = text_input.input_ids.shape[-1]
-    # uncond_input = tokenizer([""] * batch_size, padding="max_length", max_length=max_length, return_tensors="pt")
-    # uncond_embeddings = text_encoder(uncond_input.input_ids.to(torch_device))[0]
-    # print("--type(uncond_embeddings-->",uncond_embeddings)
-    # #
-    # text_embeddings = torch.cat([uncond_embeddings, text_embeddings])
-    # #
-    # latents = torch.randn(
-    # (batch_size, unet.in_channels, height // 8, width // 8),
-    # generator=generator,)
-    # print("--type(latents-1->",latents)
+    #
+    max_length = text_input.input_ids.shape[-1]
+    uncond_input = tokenizer([""] * batch_size, padding="max_length", max_length=max_length, return_tensors="pt")
+    uncond_embeddings = text_encoder(uncond_input.input_ids.to(torch_device1))[0]
+    print("--type(uncond_embeddings-->",type(uncond_embeddings))
+    print("--uncond_embeddings-->",uncond_embeddings)
+    #
+    text_embeddings = torch.cat([uncond_embeddings, text_embeddings])
+    #
+    latents = torch.randn((batch_size, unet.in_channels, height // 8, width // 8),generator=generator,)
+    print("--type(latents-1---->",type(latents))
+    print("--latents-1---->",latents)
     
     # latents = latents.to(torch_device)
     # #
