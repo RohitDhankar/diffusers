@@ -1,4 +1,23 @@
 
+
+
+
+
+
+
+
+
+##https://github.com/huggingface/diffusers/tree/main/examples/unconditional_image_generation
+
+
+import sys , torch
+
+#torch.cuda.empty_cache()
+#nvidia-smi
+#get Process ID of MAX GPU Usage 
+#kill -9 <PID>
+
+
 from diffusers import DDPMPipeline , UNet2DModel , DDPMScheduler
 import sys , torch
 import numpy as np
@@ -10,18 +29,28 @@ from diffusers import UniPCMultistepScheduler
 from tqdm.auto import tqdm
 
 
-# ddpm = DDPMPipeline.from_pretrained("google/ddpm-cat-256").to("cuda")
-# pil_image = ddpm(num_inference_steps=25).images[0]
-# print("  "*90)
-# print("---type(image)")
-# print(type(pil_image))
-# pil_image.show()
-# pil_image.save("cat_1_1.png")
 
-# num_img = np.asarray(pil_image)
-# print("  "*90)
-# print("---type(num_img)")
-# print(type(num_img))
+# from diffusers import DDPMPipeline
+
+# image_pipe = DDPMPipeline.from_pretrained("google/ddpm-celebahq-256") # trained on a dataset of celebrities images
+# image_pipe.to("cuda")
+
+# images = image_pipe().images
+# images[0]
+
+
+ddpm = DDPMPipeline.from_pretrained("google/ddpm-cat-256").to("cuda")
+pil_image = ddpm(num_inference_steps=25).images[0]
+print("  "*90)
+print("---type(image)")
+print(type(pil_image))
+pil_image.show()
+pil_image.save("cat_1_1.png")
+
+num_img = np.asarray(pil_image)
+print("  "*90)
+print("---type(num_img)")
+print(type(num_img))
 
 
 #torch_device = "cuda" ## Original HugginFace Code 
@@ -32,36 +61,46 @@ print("--torch_device2-",torch_device2)
 
 
 def denoise_func_1():
-    """
-    """
 
     scheduler = DDPMScheduler.from_pretrained("google/ddpm-cat-256")
-    model = UNet2DModel.from_pretrained("google/ddpm-cat-256").to("cuda")
+    model = UNet2DModel.from_pretrained("google/ddpm-cat-256").to("cuda")#(torch_device1)
     scheduler.set_timesteps(150)
-    print("----time-steps---",scheduler.timesteps)
+    #print("----time-steps---",scheduler.timesteps)
     #
     sample_size = model.config.sample_size
-    noise = torch.randn((1, 3, sample_size, sample_size)).to("cuda")
-    print("--type(noise---",type(noise))
+    noise = torch.randn((1, 3, sample_size, sample_size)).to("cuda")#(torch_device1)
+    #print("--type(noise---",type(noise))
     #
     input = noise
 
     for t_step in scheduler.timesteps:
+        # print("-NOW-time-step----type--->>",type(t_step))
+        # print("-NOW-time-step--->>",t_step)
+        int_t_step = int(t_step)
+        # print("-NOW-time-step----type-int_t_step-->>",type(int_t_step))
+        # print("-NOW-time-step----type-int_t_step-->>",int_t_step)
+
         with torch.no_grad():
             noisy_residual = model(input, t_step).sample
-            print("--type(noisy_residual--",type(noisy_residual))
+            #print("--type(noisy_residual--",type(noisy_residual))
         previous_noisy_sample = scheduler.step(noisy_residual, t_step, input).prev_sample
-        print("--type(previous_noisy_sample-",type(previous_noisy_sample))
         input = previous_noisy_sample
+        print("--type(previous_noisy_sample-",type(previous_noisy_sample))
+        if int_t_step % 50 == 0:
+            print("-NOW-time-step----type-int_t_step---bb---->>",int_t_step)
+            
 
-        pil_image1 = (input / 2 + 0.5).clamp(0, 1)
-        pil_image1 = pil_image1.cpu().permute(0, 2, 3, 1).numpy()[0]
-        pil_image1 = Image.fromarray((pil_image1 * 255).round().astype("uint8"))
-        print("  "*90)
-        print("---type(image)")
-        print(type(pil_image1))
-        pil_image1.show()
-        pil_image1.save("cat_2_2.png")
+            pil_image1 = (input / 2 + 0.5).clamp(0, 1)
+            pil_image1 = pil_image1.cpu().permute(0, 2, 3, 1).numpy()[0]
+            pil_image1 = Image.fromarray((pil_image1 * 255).round().astype("uint8"))
+            print("-NOW-time-step----type-int_t_step----cc---->>",int_t_step)
+            # print("  "*90)
+            # print("---type(image)")
+            # print(type(pil_image1))
+
+            pil_image1.show()
+            if int_t_step < 2:
+                pil_image1.save("cat_last_PIL.png")
 
 
 def stable_diffusion_test_pipe():
@@ -174,11 +213,8 @@ def stable_diffusion_test_pipe():
 
 
 if __name__ == '__main__':
-    #denoise_func_1()
-    stable_diffusion_test_pipe()
-
-
-
+    denoise_func_1()
+    #stable_diffusion_test_pipe()
 
 
 
@@ -192,3 +228,4 @@ if __name__ == '__main__':
 
 # result = Image.fromarray((visual * 255).astype(numpy.uint8))
 # result.save('out.bmp')
+#
